@@ -1,11 +1,14 @@
 import express from 'express';
-import { serpRouter, specRouter } from '@app/api/routers';
-// import { CONST_PARAM_SEARCH_ENGINE_ID, CONST_PARAM_SEARCH_TERM } from '@app/config/consts';
+import swaggerUi from 'swagger-ui-express';
+import { serpRouter, schemaRouter } from '@app/api/routers';
+import schemaV1 from '@app/api/schemas/schema.v1.json';
 
 const app = express();
 
 app.use(express.json());
+
+app.use('/api/schema/:schemaVersion', schemaRouter);
+app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(schemaV1));
 app.use(`/api/v1/serp/:searchEngineId/:searchTerm`, serpRouter);
-app.use('/api/v1/spec', specRouter);
 
 export { app };

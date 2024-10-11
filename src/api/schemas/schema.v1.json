@@ -1,0 +1,60 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "catch-api",
+    "version": "1.0",
+    "description": "OpenAPI schema for catch-api"
+  },
+  "paths": {
+    "/serp/{searchEngineId}/{searchTerm}": {
+      "get": {
+        "description": "Returns SEPP results for a given search engine and search term\n",
+        "operationId": "getSerp",
+        "parameters": [
+          {
+            "name": "searchEngineId",
+            "in": "path",
+            "description": "The ID of the search engine for which SERP results will be found",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "searchTerm",
+            "in": "path",
+            "description": "The term to be entered into the specified search engine",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a set of SERP results"
+          }
+        }
+      }
+    },
+    "/schemas": {
+      "get": {
+        "description": "Returns the OpenAPI schema\n",
+        "operationId": "getSchema",
+        "responses": {
+          "200": {
+            "description": "Returns the OpenAPI schema"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ]
+}

@@ -1,2 +1,2 @@
 export { serpRouter } from './serpRouter';
-export { specRouter } from './specRouter';
+export { schemaRouter } from './schemaRouter';

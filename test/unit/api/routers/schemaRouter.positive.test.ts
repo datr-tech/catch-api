@@ -1,22 +1,22 @@
 import request from 'supertest';
 import { app } from '@app/api/app';
+import schemaV1 from '@app/api/schemas/schema.v1.json';
 
 describe('api', () => {
   describe('routers', () => {
-    describe('specRouter', () => {
+    describe('schemaRouter', () => {
       describe('positive: should return the expected spec', () => {
-        test("when called with '/api/v1/spec'", async () => {
+        test("when called with '/api/schema/v1'", async () => {
           // Arrange
-          const specUrlPath = '/api/v1/spec';
-          const specExpected = 'NOT_AVAILABLE';
-
+          const schemaUrlPath = '/api/schema/v1';
+          const schemaExpected = schemaV1;
           // Act
           return request(app)
-            .get(specUrlPath)
+            .get(schemaUrlPath)
             .then((response) => {
               // Assert
               expect(response.status).toBe(200);
-              expect(response?.body?.spec).toEqual(specExpected);
+              expect(response?.body?.schema).toStrictEqual(schemaExpected);
             });
         });
       });
