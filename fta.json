@@ -9,7 +9,7 @@
         "test"
     ],
     "exclude_filenames": [
-        "./jest.config.js"
+        "./jest.config.ts"
     ],
     "extensions": [".ts"],
     "include_comments": false,
