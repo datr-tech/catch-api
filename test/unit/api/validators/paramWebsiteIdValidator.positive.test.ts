@@ -1,25 +1,25 @@
 import { Request } from 'express';
-import { paramSearchEngineIdValidator } from '@app/api/validators';
-import { requestMockBuilder } from '@appTest/mocks';
+import { paramWebsiteIdValidator } from '@app/api/validators';
+import { requestMockBuilder } from '@appTest/mocks/api/validators';
 
 const positiveTestData = [
   // The 'expected' number of errors per valid 'searchEngine' param
-  { expected: 0, searchEngineId: '1' },
+  { expected: 0, websiteId: '1' },
 ];
 
 describe('api', () => {
   describe('paramValidators', () => {
-    describe('paramSearchEngineIdValidator', () => {
+    describe('paramWebsiteIdValidator', () => {
       describe("positive: should return an empty 'errors' array, indicating that no errors have been found", () => {
         test.each(positiveTestData)(
-          "when the value of the 'searchEngineId' property within 'params' is '$searchEngineId' (from 'positiveTestData)",
-          async ({ expected, searchEngineId }) => {
+          "when the value of the 'websiteId' property within 'params' is '$websiteId' (from 'positiveTestData)",
+          async ({ expected, websiteId }) => {
             // Arrange
-            const params = { searchEngineId };
+            const params = { websiteId };
             const req = requestMockBuilder(params) as Request;
 
             // Act
-            const { context } = await paramSearchEngineIdValidator.run(req);
+            const { context } = await paramWebsiteIdValidator.run(req);
             const { errors } = context;
             const found = errors.length;
 

@@ -1,2 +1,2 @@
 export { SchemaVersionEnum } from './SchemaVersionEnum';
-export { SearchEngineIdEnum } from './SearchEngineIdEnum';
+export { WebsiteIdEnum } from './WebsiteIdEnum';

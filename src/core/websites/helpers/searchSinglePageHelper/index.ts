@@ -1,0 +1,1 @@
+export { searchSinglePageHelper } from './searchSinglePageHelper';

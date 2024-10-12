@@ -9,6 +9,6 @@ app.use(express.json());
 
 app.use('/api/schema/:schemaVersion', schemaRouter);
 app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(schemaV1));
-app.use(`/api/v1/serp/:searchEngineId/:searchTerm`, serpRouter);
+app.use(`/api/v1/serp/:websiteId/:searchTerm`, serpRouter);
 
 export { app };

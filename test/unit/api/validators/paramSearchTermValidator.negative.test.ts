@@ -1,9 +1,9 @@
 import { Request } from 'express';
 import { paramSearchTermValidator } from '@app/api/validators';
-import { requestMockBuilder } from '@appTest/mocks';
+import { requestMockBuilder } from '@appTest/mocks/api/validators';
 
-const positiveTestData = [
-  // The 'expected' number of errors per valid 'searchTerm:' param
+const negativeTestData = [
+  // The 'expected' number of errors per invalid 'searchTerm'
   { expected: 1, searchTerm: '' },
   { expected: 1, searchTerm: 0 },
   { expected: 1, searchTerm: 1 },
@@ -20,7 +20,7 @@ describe('api', () => {
   describe('paramValidators', () => {
     describe('paramSearchTermValidator', () => {
       describe("negative: should return a non-empty 'errors' array, indicating that errors have been found", () => {
-        test.each(positiveTestData)(
+        test.each(negativeTestData)(
           "when the value of the 'searchTerm' property within 'params' is '$searchTerm' (from 'negativeTestData)",
           async ({ expected, searchTerm }) => {
             // Arrange

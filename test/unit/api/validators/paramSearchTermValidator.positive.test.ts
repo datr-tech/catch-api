@@ -1,9 +1,9 @@
 import { Request } from 'express';
 import { paramSearchTermValidator } from '@app/api/validators';
-import { requestMockBuilder } from '@appTest/mocks';
+import { requestMockBuilder } from '@appTest/mocks/api/validators';
 
 const positiveTestData = [
-  // The 'expected' number of errors per valid 'searchTerm' param
+  // The 'expected' number of errors per valid 'searchTerm'
   { expected: 0, searchTerm: 'ABC' },
   { expected: 0, searchTerm: 'abc' },
   { expected: 0, searchTerm: ' abc ' },

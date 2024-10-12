@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import { paramSchemaVersionValidator } from '@app/api/validators';
-import { requestMockBuilder } from '@appTest/mocks';
+import { requestMockBuilder } from '@appTest/mocks/api/validators';
 
 const negativeTestData = [
   // The 'expected' number of errors per invalid 'schemaVersion'

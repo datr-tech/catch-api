@@ -1,0 +1,1 @@
+export { enterSearchTermHelper } from './enterSearchTermHelper';

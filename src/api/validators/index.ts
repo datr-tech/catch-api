@@ -1,3 +1,3 @@
 export { paramSchemaVersionValidator } from './paramSchemaVersionValidator';
-export { paramSearchEngineIdValidator } from './paramSearchEngineIdValidator';
+export { paramWebsiteIdValidator } from './paramWebsiteIdValidator';
 export { paramSearchTermValidator } from './paramSearchTermValidator';

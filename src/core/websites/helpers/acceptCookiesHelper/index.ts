@@ -1,0 +1,1 @@
+export { acceptCookiesHelper } from './acceptCookiesHelper';
