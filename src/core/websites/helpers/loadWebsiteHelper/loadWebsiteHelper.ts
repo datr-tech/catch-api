@@ -3,13 +3,13 @@ import stealth from 'puppeteer-extra-plugin-stealth';
 import { assertURL } from '@app/core/assertions';
 import { IHelperLoadWebsite } from '@app/interfaces/core/websites/helpers';
 
-export const loadWebsiteHelper: IHelperLoadWebsite = async ({ url }) => {
+export const loadWebsiteHelper: IHelperLoadWebsite = async ({ url, chromiumLocal = chromium }) => {
   assertURL({ url });
 
   try {
-    chromium.use(stealth());
+    chromiumLocal.use(stealth());
 
-    const browser = await chromium.launch();
+    const browser = await chromiumLocal.launch();
     const context = await browser.newContext();
     const page = await context.newPage();
     await page.goto(url);

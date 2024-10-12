@@ -6,9 +6,22 @@ import { submitHelper } from '@app/core/websites/helpers/submitHelper';
 import { IHelperSearchSinglePage } from '@app/interfaces/core/websites/helpers';
 
 export const searchSinglePageHelper: IHelperSearchSinglePage = async ({ searchTerm, url }) => {
+  let hasEntered: boolean;
+  let hasSubmitted = false;
+  let html = "";
+
   const page = await loadWebsiteHelper({ url });
   await acceptCookiesHelper({ page });
-  await enterSearchTermHelper({ page, searchTerm });
-  await submitHelper({ page });
-  return await getHtmlHelper({ page });
+
+  hasEntered = await enterSearchTermHelper({ page, searchTerm });
+
+  if (hasEntered) {
+    hasSubmitted = await submitHelper({ page });
+  }
+
+  if (hasSubmitted) {
+    html = await getHtmlHelper({ page });
+  }
+
+  return html;
 };

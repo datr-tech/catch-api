@@ -20,7 +20,7 @@
     "build": "npx webpack --mode production",
     "start": "node ./dist/catch-api.cjs",
     "dev": "npx tsx ./src/index.ts",
-    "test:server": "npx tsx ./test/mocks/mockServer.ts",
+    "test:server": "npx tsx ./test/server/index.ts",
     "test:base": "npx jest",
     "test:unit": "npm run test:base -- ./test/unit",
     "test:unit:cov": "npm run test:unit -- --coverage",

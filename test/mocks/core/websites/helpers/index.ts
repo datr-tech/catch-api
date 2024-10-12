@@ -4,5 +4,9 @@ export { enterSearchTermHelperMockHtmlNegative } from './enterSearchTermHelperMo
 export { enterSearchTermHelperMockHtmlPositive } from './enterSearchTermHelperMockHtmlPositive';
 export { getHtmlHelperMockHtmlPositive } from './getHtmlHelperMockHtmlPositive';
 export { loadWebsiteHelperMockHtmlPositive } from './loadWebsiteHelperMockHtmlPositive';
+export { searchHelperMockHtmlNegative } from './searchHelperMockHtmlNegative';
+export { searchHelperMockHtmlPositive } from './searchHelperMockHtmlPositive';
+export { searchSinglePageHelperMockHtmlPositive } from './searchSinglePageHelperMockHtmlPositive';
+export { searchSinglePageHelperMockHtmlNegative } from './searchSinglePageHelperMockHtmlNegative';
 export { submitHelperMockHtmlNegative } from './submitHelperMockHtmlNegative';
 export { submitHelperMockHtmlPositive } from './submitHelperMockHtmlPositive';

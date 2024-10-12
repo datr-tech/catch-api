@@ -1,4 +1,5 @@
 import { IHelperSubmit } from '@app/interfaces/core/websites/helpers';
+import { CONST_TIME_ONE_SECOND } from '@app/config/consts';
 
 export const submitHelper: IHelperSubmit = async ({ page }) => {
   try {
@@ -13,14 +14,14 @@ export const submitHelper: IHelperSubmit = async ({ page }) => {
       let firstConfirmSearchButtonVisibility = await firstConfirmSearchButton.isVisible();
 
       if (firstConfirmSearchButtonVisibility === false) {
-        await page.waitForTimeout(1000);
+        await page.waitForTimeout(CONST_TIME_ONE_SECOND);
 
         firstConfirmSearchButtonVisibility = await firstConfirmSearchButton.isVisible();
       }
 
       if (firstConfirmSearchButtonVisibility === true) {
         await firstConfirmSearchButton.click();
-        await page.waitForTimeout(1000);
+        await page.waitForTimeout(CONST_TIME_ONE_SECOND);
         hasBeenSubmitted = true;
       }
     }

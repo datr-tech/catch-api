@@ -1,4 +1,6 @@
+import { chromium } from 'playwright-extra';
 import { loadWebsiteHelper } from '@app/core/websites/helpers';
+import { CONST_ROUTES_MOCK_SERVER } from '../../../../../src/config/consts';
 
 describe('core', () => {
   describe('websites', () => {
@@ -14,6 +16,26 @@ describe('core', () => {
               // Act
               const handler = async () => {
                 await loadWebsiteHelper({ url });
+              };
+
+              // Assert
+              await expect(handler).rejects.toThrow(errorExpected);
+            });
+            test("when 'chromium.use' throws an error", async () => {
+              // Arrange
+              const errorExpected = 'chromium.use error';
+              const chromiumLocal = {
+                use: () => {
+                  throw new Error(errorExpected);
+                }
+              } as any as typeof chromium;
+
+              const path = 'core/websites/helpers/loadWebsiteHelper/positive';
+              const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
+
+              // Act
+              const handler = async () => {
+                await loadWebsiteHelper({ url, chromiumLocal });
               };
 
               // Assert
