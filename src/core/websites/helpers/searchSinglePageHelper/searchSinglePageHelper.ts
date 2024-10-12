@@ -6,14 +6,12 @@ import { submitHelper } from '@app/core/websites/helpers/submitHelper';
 import { IHelperSearchSinglePage } from '@app/interfaces/core/websites/helpers';
 
 export const searchSinglePageHelper: IHelperSearchSinglePage = async ({ searchTerm, url }) => {
-  let hasEntered: boolean;
   let hasSubmitted = false;
-  let html = "";
+  let html = '';
 
   const page = await loadWebsiteHelper({ url });
   await acceptCookiesHelper({ page });
-
-  hasEntered = await enterSearchTermHelper({ page, searchTerm });
+  const hasEntered = await enterSearchTermHelper({ page, searchTerm });
 
   if (hasEntered) {
     hasSubmitted = await submitHelper({ page });

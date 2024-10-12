@@ -8,15 +8,12 @@ import {
 
 const router = express.Router({ mergeParams: true });
 
-export const acceptCookiesHelperRouter: IRouter = router.get(
-  CONST_ROUTES_BASE,
-  async (req: Request, res: Response) => {
-      const { testType } = req.params;
+export const acceptCookiesHelperRouter: IRouter = router.get(CONST_ROUTES_BASE, async (req: Request, res: Response) => {
+  const { testType } = req.params;
 
-      if (testType === 'positive') {
-        res.send(acceptCookiesHelperMockHtmlPositive);
-      } else {
-        res.send(acceptCookiesHelperMockHtmlNegative);
-      }
-  },
-);
+  if (testType === 'positive') {
+    res.send(acceptCookiesHelperMockHtmlPositive);
+  } else {
+    res.send(acceptCookiesHelperMockHtmlNegative);
+  }
+});

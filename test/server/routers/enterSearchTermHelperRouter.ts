@@ -11,12 +11,12 @@ const router = express.Router({ mergeParams: true });
 export const enterSearchTermHelperRouter: IRouter = router.get(
   CONST_ROUTES_BASE,
   async (req: Request, res: Response) => {
-      const { testType } = req.params;
+    const { testType } = req.params;
 
-      if (testType === 'positive') {
-        res.send(enterSearchTermHelperMockHtmlPositive);
-      } else {
-        res.send(enterSearchTermHelperMockHtmlNegative);
-      }
+    if (testType === 'positive') {
+      res.send(enterSearchTermHelperMockHtmlPositive);
+    } else {
+      res.send(enterSearchTermHelperMockHtmlNegative);
+    }
   },
 );

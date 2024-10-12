@@ -1,0 +1,1 @@
+export { organicSearchParser } from './organicSearchParser';

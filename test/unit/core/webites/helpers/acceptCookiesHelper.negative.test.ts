@@ -29,7 +29,7 @@ describe('core', () => {
               const page = await loadWebsiteHelper({ url });
 
               // Force page.locator to throw an error
-              page.locator = (_el) => {
+              page.locator = () => {
                 throw new Error(errorExpected);
               };
 

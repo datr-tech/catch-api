@@ -1,6 +1,6 @@
 import { chromium } from 'playwright-extra';
 import { loadWebsiteHelper } from '@app/core/websites/helpers';
-import { CONST_ROUTES_MOCK_SERVER } from '../../../../../src/config/consts';
+import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
 
 describe('core', () => {
   describe('websites', () => {
@@ -27,7 +27,8 @@ describe('core', () => {
               const chromiumLocal = {
                 use: () => {
                   throw new Error(errorExpected);
-                }
+                },
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
               } as any as typeof chromium;
 
               const path = 'core/websites/helpers/loadWebsiteHelper/positive';

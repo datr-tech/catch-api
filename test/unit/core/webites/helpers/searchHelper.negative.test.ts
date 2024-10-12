@@ -13,7 +13,7 @@ describe('core', () => {
           describe('should return an array with an empty string ', () => {
             test("when 'url' represents a valid web page WITHOUT the required elements", async () => {
               // Arrange
-              const htmlExpected = "";
+              const htmlExpected = '';
               const numPages = 1;
 
               // Act

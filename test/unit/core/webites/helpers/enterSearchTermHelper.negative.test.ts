@@ -14,7 +14,6 @@ describe('core', () => {
             test("when 'url' represents a valid web page WITHOUT a 'Search' input", async () => {
               // Arrange
 
-
               // Act
               const page = await loadWebsiteHelper({ url });
               const hasAcceptedCookies = await acceptCookiesHelper({ page });
@@ -32,7 +31,7 @@ describe('core', () => {
               const page = await loadWebsiteHelper({ url });
 
               // Force page.getByTitle to throw an error
-              page.getByTitle = (_title) => {
+              page.getByTitle = () => {
                 throw new Error(errorExpected);
               };
 

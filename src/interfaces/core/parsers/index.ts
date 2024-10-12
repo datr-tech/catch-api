@@ -1,0 +1,1 @@
+export { IParserOrganicSearch } from './IParserOrganicSearch';

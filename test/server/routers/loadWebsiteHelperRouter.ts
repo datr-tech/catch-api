@@ -5,15 +5,12 @@ import { loadWebsiteHelperMockHtmlPositive } from '@appTest/mocks/core/websites/
 
 const router = express.Router({ mergeParams: true });
 
-export const loadWebsiteHelperRouter: IRouter = router.get(
-  CONST_ROUTES_BASE,
-  async (req: Request, res: Response) => {
-      const { testType } = req.params;
+export const loadWebsiteHelperRouter: IRouter = router.get(CONST_ROUTES_BASE, async (req: Request, res: Response) => {
+  const { testType } = req.params;
 
-      if (testType === 'positive') {
-        res.send(loadWebsiteHelperMockHtmlPositive);
-      } else {
-        res.status(404).send('Not Found');
-      }
-  },
-);
+  if (testType === 'positive') {
+    res.send(loadWebsiteHelperMockHtmlPositive);
+  } else {
+    res.status(404).send('Not Found');
+  }
+});

@@ -7,5 +7,5 @@ const url = 'https://www.google.co.uk';
 export const googleCoUkWebsite: IWebsite = {
   getURL: () => url,
   getWebsiteId: () => WebsiteIdEnum['google.co.uk'],
-  search: async ({ searchTerm, numPages }) => await searchHelper({ url, searchTerm, numPages })
+  search: async ({ searchTerm, numPages }) => await searchHelper({ url, searchTerm, numPages }),
 };

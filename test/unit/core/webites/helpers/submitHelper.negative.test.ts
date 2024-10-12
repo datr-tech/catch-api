@@ -36,11 +36,11 @@ describe('core', () => {
               // Arrange
               const errorExpected = 'page.locator error';
               const page = await loadWebsiteHelper({ url });
-              const hasAcceptedCookies = await acceptCookiesHelper({ page });
-              const hasEnteredSearchTerm = await enterSearchTermHelper({ page, searchTerm });
+              await acceptCookiesHelper({ page });
+              await enterSearchTermHelper({ page, searchTerm });
 
               // Force page.locator to throw an error
-              page.locator = (_el) => {
+              page.locator = () => {
                 throw new Error(errorExpected);
               };
               // Act
@@ -48,7 +48,7 @@ describe('core', () => {
               // Act
               const handler = async () => {
                 await submitHelper({ page });
-              }
+              };
 
               // Assert
               await expect(handler).rejects.toThrow(errorExpected);

@@ -11,12 +11,12 @@ const router = express.Router({ mergeParams: true });
 export const searchSinglePageHelperRouter: IRouter = router.get(
   CONST_ROUTES_BASE,
   async (req: Request, res: Response) => {
-      const { testType } = req.params;
+    const { testType } = req.params;
 
-      if (testType === 'positive') {
-        res.send(searchSinglePageHelperMockHtmlPositive);
-      } else {
-        res.send(searchSinglePageHelperMockHtmlNegative);
-      }
+    if (testType === 'positive') {
+      res.send(searchSinglePageHelperMockHtmlPositive);
+    } else {
+      res.send(searchSinglePageHelperMockHtmlNegative);
+    }
   },
 );

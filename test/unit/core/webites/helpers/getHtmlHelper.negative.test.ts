@@ -1,4 +1,4 @@
-import { enterSearchTermHelper, getHtmlHelper, loadWebsiteHelper } from '@app/core/websites/helpers';
+import { getHtmlHelper, loadWebsiteHelper } from '@app/core/websites/helpers';
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
 
 describe('core', () => {
