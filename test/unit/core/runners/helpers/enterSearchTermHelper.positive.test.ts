@@ -1,4 +1,4 @@
-import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts';
+import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
 import { acceptCookiesHelper, enterSearchTermHelper, loadWebsiteHelper } from '@app/core/runners/helpers';
 
 const path = 'core/runners/helpers/enterSearchTermHelper/positive';

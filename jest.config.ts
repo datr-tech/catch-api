@@ -14,7 +14,6 @@ export default {
     '@appTest/(.*)': '<rootDir>/test/$1',
   },
   preset: 'ts-jest',
-  setupFiles: ['<rootDir>/.jest/setupPaths.ts'],
   testEnvironment: 'node',
   testPathIgnorePatterns: ['<rootDir>/node_modules/'],
   transform: {

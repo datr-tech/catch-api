@@ -3,7 +3,7 @@ import { IParserFeatureImagePack } from '@app/interfaces/core/parsers/features/i
 
 // const { JSDOM } = jsdom;
 
-export const imagePackFeatureParser: IParserFeatureImagePack = ({ html }) => {
+export const imagePackFeatureParser: IParserFeatureImagePack = () => {
   return {
     title: 'ABC',
   };

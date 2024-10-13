@@ -1,5 +1,5 @@
 import jsdom from 'jsdom';
-import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts';
+import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
 import { searchHelper } from '@app/core/runners/helpers';
 
 const { JSDOM } = jsdom;
