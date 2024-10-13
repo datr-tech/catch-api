@@ -1,22 +1,11 @@
-import express, { Request, Response } from 'express';
 import { IRouter } from '@app/interfaces/api';
-import { CONST_ROUTES_BASE } from '@app/config/consts';
+import { routerBuilder } from '@appTest/server/builders';
 import {
-  searchSinglePageHelperMockHtmlNegative,
   searchSinglePageHelperMockHtmlPositive,
-} from '@appTest/mocks/core/websites/helpers';
+  searchSinglePageHelperMockHtmlNegative,
+} from '@appTest/mocks/core/websiteRunners/helpers';
 
-const router = express.Router({ mergeParams: true });
-
-export const searchSinglePageHelperRouter: IRouter = router.get(
-  CONST_ROUTES_BASE,
-  async (req: Request, res: Response) => {
-      const { testType } = req.params;
-
-      if (testType === 'positive') {
-        res.send(searchSinglePageHelperMockHtmlPositive);
-      } else {
-        res.send(searchSinglePageHelperMockHtmlNegative);
-      }
-  },
+export const searchSinglePageHelperRouter: IRouter = routerBuilder(
+  searchSinglePageHelperMockHtmlPositive,
+  searchSinglePageHelperMockHtmlNegative,
 );

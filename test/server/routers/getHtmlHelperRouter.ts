@@ -1,21 +1,5 @@
-import express, { Request, Response } from 'express';
 import { IRouter } from '@app/interfaces/api';
-import { CONST_ROUTES_BASE } from '@app/config/consts';
-import {
-  getHtmlHelperMockHtmlPositive,
-} from '@appTest/mocks/core/websites/helpers';
+import { routerBuilder } from '@appTest/server/builders';
+import { getHtmlHelperMockHtmlPositive } from '@appTest/mocks/core/websiteRunners/helpers';
 
-const router = express.Router({ mergeParams: true });
-
-export const getHtmlHelperRouter: IRouter = router.get(
-  CONST_ROUTES_BASE,
-  async (req: Request, res: Response) => {
-      const { testType } = req.params;
-
-      if (testType === 'positive') {
-        res.send(getHtmlHelperMockHtmlPositive);
-      } else {
-        res.status(404).send('Not Found');
-      }
-  },
-);
+export const getHtmlHelperRouter: IRouter = routerBuilder(getHtmlHelperMockHtmlPositive);

@@ -1,22 +1,5 @@
-import express, { Request, Response } from 'express';
 import { IRouter } from '@app/interfaces/api';
-import { CONST_ROUTES_BASE } from '@app/config/consts';
-import {
-  submitHelperMockHtmlNegative,
-  submitHelperMockHtmlPositive,
-} from '@appTest/mocks/core/websites/helpers';
+import { routerBuilder } from '@appTest/server/builders';
+import { submitHelperMockHtmlPositive, submitHelperMockHtmlNegative } from '@appTest/mocks/core/websiteRunners/helpers';
 
-const router = express.Router({ mergeParams: true });
-
-export const submitHelperRouter: IRouter = router.get(
-  CONST_ROUTES_BASE,
-  async (req: Request, res: Response) => {
-      const { testType } = req.params;
-
-      if (testType === 'positive') {
-        res.send(submitHelperMockHtmlPositive);
-      } else {
-        res.send(submitHelperMockHtmlNegative);
-      }
-  },
-);
+export const submitHelperRouter: IRouter = routerBuilder(submitHelperMockHtmlPositive, submitHelperMockHtmlNegative);
