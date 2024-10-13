@@ -1,8 +1,8 @@
-import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
+import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
 import { searchSinglePageHelper } from '@app/core/runners/helpers';
 
 const path = 'core/runners/helpers/searchSinglePageHelper/negative';
-const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
+const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
 
 describe('core', () => {
   describe('runners', () => {

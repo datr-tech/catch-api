@@ -1,6 +1,6 @@
 import { WebsiteIdEnum } from '@app/config/enums';
 import { searchHelper } from '@app/core/runners/helpers';
-import { IRunner } from 'src/interfaces/core/runners';
+import { IRunner } from '@app/interfaces/core/runners';
 
 const url = 'https://www.google.co.uk';
 

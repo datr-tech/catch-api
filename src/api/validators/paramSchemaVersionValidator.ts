@@ -1,5 +1,5 @@
 import { param } from 'express-validator';
-import { CONSTS_PARAMS_SCHEMA_VERSION } from '@app/config/consts';
+import { CONSTS_PARAMS_SCHEMA_VERSION } from '@app/config/consts/params';
 import { SchemaVersionEnum } from '@app/config/enums';
 import { IValidator } from '@app/interfaces/api';
 

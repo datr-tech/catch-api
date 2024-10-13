@@ -1,1 +1,1 @@
-export { routerBuilder } from './routerBuilder';
+export { routerBuilderByTestType } from './routerBuilderByTestType';

@@ -1,5 +1,5 @@
-import { jestAppMocksDir, jestAppRootDir, jestAppTestDir } from './paths';
+import { jestConstTestFixturesDir, jestConstAppRoot, jestConstTestDir } from './paths';
 
-global.JEST_APP_MOCKS_DIR = jestAppMocksDir;
-global.JEST_APP_ROOT_DIR = jestAppRootDir;
-global.JEST_APP_TEST_DIR = jestAppTestDir;
+global.JEST_CONST_APP_ROOT = jestConstAppRoot;
+global.JEST_CONST_TEST_DIR = jestConstTestDir;
+global.JEST_CONST_TEST_FIXTURES_DIR = jestConstTestFixturesDir;

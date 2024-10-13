@@ -1,8 +1,8 @@
 import { getHtmlHelper, loadWebsiteHelper } from '@app/core/runners/helpers';
-import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
+import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
 
 const path = 'core/runners/helpers/getHtmlHelper/positive';
-const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
+const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
 
 describe('core', () => {
   describe('runners', () => {

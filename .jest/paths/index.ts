@@ -1,3 +1,3 @@
-export { jestAppRootDir } from './jestAppRootDir';
-export { jestAppTestDir } from './jestAppTestDir';
-export { jestAppMocksDir } from './jestAppMocksDir';
+export { jestConstAppRoot } from './jestConstAppRoot';
+export { jestConstTestDir } from './jestConstTestDir';
+export { jestConstTestFixturesDir } from './jestConstTestFixturesDir';

@@ -1,8 +1,8 @@
-import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
+import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts';
 import { acceptCookiesHelper, enterSearchTermHelper, loadWebsiteHelper } from '@app/core/runners/helpers';
 
 const path = 'core/runners/helpers/enterSearchTermHelper/positive';
-const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
+const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
 
 describe('core', () => {
   describe('runners', () => {

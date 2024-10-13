@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import { paramSchemaVersionValidator } from '@app/api/validators';
-import { requestMockBuilder } from '@appTest/mocks/api/validators';
+import { requestBuilder } from '@appTest/fixtures/api/validators';
 
 const positiveTestData = [
   // The 'expected' number of errors per valid 'schemaVersion'
@@ -16,7 +16,7 @@ describe('api', () => {
           async ({ expected, schemaVersion }) => {
             // Arrange
             const params = { schemaVersion };
-            const req = requestMockBuilder(params) as Request;
+            const req = requestBuilder(params) as Request;
 
             // Act
             const { context } = await paramSchemaVersionValidator.run(req);

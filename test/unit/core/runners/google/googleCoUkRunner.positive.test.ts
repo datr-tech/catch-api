@@ -1,6 +1,6 @@
 import jsdom from 'jsdom';
 import { googleCoUkRunner } from '@app/core/runners/google';
-import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts';
+import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts/time';
 
 const { JSDOM } = jsdom;
 

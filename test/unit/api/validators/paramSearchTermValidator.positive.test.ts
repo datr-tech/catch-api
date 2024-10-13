@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import { paramSearchTermValidator } from '@app/api/validators';
-import { requestMockBuilder } from '@appTest/mocks/api/validators';
+import { requestBuilder } from '@appTest/fixtures/api/validators';
 
 const positiveTestData = [
   // The 'expected' number of errors per valid 'searchTerm'
@@ -20,7 +20,7 @@ describe('api', () => {
           async ({ expected, searchTerm }) => {
             // Arrange
             const params = { searchTerm };
-            const req = requestMockBuilder(params) as Request;
+            const req = requestBuilder(params) as Request;
 
             // Act
             const { context } = await paramSearchTermValidator.run(req);

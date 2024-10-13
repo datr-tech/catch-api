@@ -1,5 +1,19 @@
+import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
 import { IRouter } from '@app/interfaces/api';
-import { routerBuilder } from '@appTest/server/builders';
-import { searchHelperMockHtmlPositive, searchHelperMockHtmlNegative } from '@appTest/mocks/core/runners/helpers';
+import { routerBuilderByTestType } from '@appTest/server/builders';
+import { IFileToServeByTestType } from '@appTest/server/interfaces/builders';
 
-export const searchHelperRouter: IRouter = routerBuilder(searchHelperMockHtmlPositive, searchHelperMockHtmlNegative);
+const filesToServeByTestType: IFileToServeByTestType[] = [
+  {
+    testType: 'negative',
+    filePath: `${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/runners/helpers/searchHelper.negative.html`,
+  },
+  {
+    testType: 'positive',
+    filePath: `${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/runners/helpers/searchHelper.positive.html`,
+  },
+];
+
+export const searchHelperRouter: IRouter = routerBuilderByTestType({
+  filesToServeByTestType,
+});

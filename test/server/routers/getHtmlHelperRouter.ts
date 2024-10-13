@@ -1,5 +1,15 @@
+import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
 import { IRouter } from '@app/interfaces/api';
-import { routerBuilder } from '@appTest/server/builders';
-import { getHtmlHelperMockHtmlPositive } from '@appTest/mocks/core/runners/helpers';
+import { routerBuilderByTestType } from '@appTest/server/builders';
+import { IFileToServeByTestType } from '@appTest/server/interfaces/builders';
 
-export const getHtmlHelperRouter: IRouter = routerBuilder(getHtmlHelperMockHtmlPositive);
+const filesToServeByTestType: IFileToServeByTestType[] = [
+  {
+    testType: 'positive',
+    filePath: `${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/runners/helpers/getHtmlHelper.positive.html`,
+  },
+];
+
+export const getHtmlHelperRouter: IRouter = routerBuilderByTestType({
+  filesToServeByTestType,
+});

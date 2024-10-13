@@ -1,10 +1,10 @@
 import jsdom from 'jsdom';
-import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
+import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts';
 import { searchHelper } from '@app/core/runners/helpers';
 
 const { JSDOM } = jsdom;
 const path = 'core/runners/helpers/searchHelper/positive';
-const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
+const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
 
 describe('core', () => {
   describe('runners', () => {
@@ -16,7 +16,7 @@ describe('core', () => {
               // Arrange
               const numPages = 1;
               const searchTerm = 'MOCK_SEARCH_TERM';
-              const titleExpected = 'searchHelperMockHtmlPositive';
+              const titleExpected = 'searchHelper.positive';
 
               // Act
               const output = await searchHelper({ url, searchTerm, numPages });
@@ -30,7 +30,7 @@ describe('core', () => {
             test("when 'url' represents a valid web page and the default value of 'numPages', 1, is used", async () => {
               // Arrange
               const searchTerm = 'MOCK_SEARCH_TERM';
-              const titleExpected = 'searchHelperMockHtmlPositive';
+              const titleExpected = 'searchHelper.positive';
 
               // Act
               const output = await searchHelper({ url, searchTerm });

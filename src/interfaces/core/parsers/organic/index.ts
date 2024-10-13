@@ -1,0 +1,1 @@
+export { IParserOrganic } from './IParserOrganic';

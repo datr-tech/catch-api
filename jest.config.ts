@@ -1,5 +1,5 @@
 export default {
-  coveragePathIgnorePatterns: ['<rootDir>/.jest', '<rootDir>/test/mocks'],
+  coveragePathIgnorePatterns: ['<rootDir>/.jest', '<rootDir>/test/fixtures'],
   coverageReporters: ['clover', 'text'],
   coverageThreshold: {
     global: {
@@ -14,7 +14,7 @@ export default {
     '@appTest/(.*)': '<rootDir>/test/$1',
   },
   preset: 'ts-jest',
-  setupFilesAfterEnv: ['<rootDir>/.jest/setupPaths.ts', '<rootDir>/.jest/setupFunctions.ts'],
+  setupFiles: ['<rootDir>/.jest/setupPaths.ts'],
   testEnvironment: 'node',
   testPathIgnorePatterns: ['<rootDir>/node_modules/'],
   transform: {

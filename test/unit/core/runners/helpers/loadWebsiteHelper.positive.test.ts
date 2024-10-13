@@ -1,8 +1,8 @@
-import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
+import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
 import { loadWebsiteHelper } from '@app/core/runners/helpers';
 
 const path = 'core/runners/helpers/loadWebsiteHelper/positive';
-const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
+const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
 
 describe('core', () => {
   describe('runners', () => {
@@ -12,7 +12,7 @@ describe('core', () => {
           describe("should return a Playwright 'page' object", () => {
             test("when 'url' represents a valid (mocked) web page. Check that 'page.title()' is correct", async () => {
               // Arrange
-              const titleExpected = 'loadWebsiteHelperMockHtmlPositive';
+              const titleExpected = 'loadWebsiteHelper.positive';
 
               // Act
               const page = await loadWebsiteHelper({ url });

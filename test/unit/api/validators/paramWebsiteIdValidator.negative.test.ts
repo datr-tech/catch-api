@@ -1,6 +1,6 @@
 import { Request } from 'express';
 import { paramWebsiteIdValidator } from '@app/api/validators';
-import { requestMockBuilder } from '@appTest/mocks/api/validators';
+import { requestBuilder } from '@appTest/fixtures/api/validators';
 
 const negativeTestData = [
   // The 'expected' number of errors per invalid 'websiteId'
@@ -25,7 +25,7 @@ describe('api', () => {
           async ({ expected, websiteId }) => {
             // Arrange
             const params = { websiteId };
-            const req = requestMockBuilder(params) as Request;
+            const req = requestBuilder(params) as Request;
 
             // Act
             const { context } = await paramWebsiteIdValidator.run(req);

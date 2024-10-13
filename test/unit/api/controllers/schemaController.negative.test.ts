@@ -10,6 +10,7 @@ describe('api', () => {
           const errorExpected = "Unknown 'schemaVersion'";
           const schemaVersion = SchemaVersionEnum.UNKNOWN;
           // Act
+
           const handler = () => {
             schemaController({ schemaVersion });
           };

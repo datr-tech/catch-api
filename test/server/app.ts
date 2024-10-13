@@ -3,8 +3,9 @@ import {
   acceptCookiesHelperRouter,
   enterSearchTermHelperRouter,
   getHtmlHelperRouter,
+  imagePackFeatureParserRouter,
   loadWebsiteHelperRouter,
-  organicSearchParserRouter,
+  organicParserRouter,
   searchHelperRouter,
   searchSinglePageHelperRouter,
   submitHelperRouter,
@@ -22,6 +23,7 @@ app.use('/core/runners/helpers/searchSinglePageHelper/:testType', searchSinglePa
 app.use('/core/runners/helpers/submitHelper/:testType', submitHelperRouter);
 
 // PARSERS
-app.use('/core/parsers/organicSearchParser/:testType', organicSearchParserRouter);
+app.use('/core/parsers/organic/:testType', organicParserRouter);
+app.use('/core/parsers/features/imagePack/:testType', imagePackFeatureParserRouter);
 
 export { app };

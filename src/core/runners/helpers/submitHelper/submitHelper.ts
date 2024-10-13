@@ -1,5 +1,5 @@
 import { IHelperSubmit } from '@app/interfaces/core/runners/helpers';
-import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts';
+import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts/time';
 
 export const submitHelper: IHelperSubmit = async ({ page }) => {
   try {
