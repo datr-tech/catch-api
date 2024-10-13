@@ -1,8 +1,8 @@
-import { loadWebsiteHelper } from '@app/core/websites/helpers';
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
+import { loadWebsiteHelper } from '@app/core/websiteRunners/helpers';
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('loadWebsiteHelper', () => {
         describe('positive', () => {
@@ -10,7 +10,7 @@ describe('core', () => {
             test("when 'url' represents a valid (mocked) web page. Check that 'page.title()' is correct", async () => {
               // Arrange
               const titleExpected = 'loadWebsiteHelperMockHtmlPositive';
-              const path = 'core/websites/helpers/loadWebsiteHelper/positive';
+              const path = 'core/websiteRunners/helpers/loadWebsiteHelper/positive';
               const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
               // Act

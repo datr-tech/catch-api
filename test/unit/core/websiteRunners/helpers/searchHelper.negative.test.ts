@@ -1,12 +1,12 @@
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
-import { searchHelper } from '@app/core/websites/helpers';
+import { searchHelper } from '@app/core/websiteRunners/helpers';
 
 const searchTerm = 'MOCK_SEARCH_TERM';
-const path = 'core/websites/helpers/searchHelper/negative';
+const path = 'core/websiteRunners/helpers/searchHelper/negative';
 const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('searchHelper', () => {
         describe('negative', () => {

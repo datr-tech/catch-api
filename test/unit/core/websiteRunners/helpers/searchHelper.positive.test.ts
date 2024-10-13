@@ -1,15 +1,15 @@
 import jsdom from 'jsdom';
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
-import { searchHelper } from '@app/core/websites/helpers';
+import { searchHelper } from '@app/core/websiteRunners/helpers';
 
 const { JSDOM } = jsdom;
 const searchTerm = 'MOCK_SEARCH_TERM';
 const titleExpected = 'searchHelperMockHtmlPositive';
-const path = 'core/websites/helpers/searchHelper/positive';
+const path = 'core/websiteRunners/helpers/searchHelper/positive';
 const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('searchHelper', () => {
         describe('positive', () => {

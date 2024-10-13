@@ -1,33 +1,26 @@
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
-import {
-  acceptCookiesHelper,
-  enterSearchTermHelper,
-  loadWebsiteHelper,
-  submitHelper,
-} from '@app/core/websites/helpers';
+import { acceptCookiesHelper, enterSearchTermHelper, loadWebsiteHelper } from '@app/core/websiteRunners/helpers';
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
-      describe('submitHelper', () => {
+      describe('enterSearchTermHelper', () => {
         describe('positive', () => {
           describe('should return true', () => {
-            test("when 'url' represents a valid web page with a submit button", async () => {
+            test("when 'url' represents a valid web page with a 'Search' input", async () => {
               // Arrange
               const searchTerm = 'MOCK_SEARCH_TERM';
-              const path = 'core/websites/helpers/submitHelper/positive';
+              const path = 'core/websiteRunners/helpers/enterSearchTermHelper/positive';
               const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
               // Act
               const page = await loadWebsiteHelper({ url });
               const hasAcceptedCookies = await acceptCookiesHelper({ page });
               const hasEnteredSearchTerm = await enterSearchTermHelper({ page, searchTerm });
-              const hasBeenSubmitted = await submitHelper({ page });
 
               // Assert
               expect(hasAcceptedCookies).toBe(true);
               expect(hasEnteredSearchTerm).toBe(true);
-              expect(hasBeenSubmitted).toBe(true);
             });
           });
         });

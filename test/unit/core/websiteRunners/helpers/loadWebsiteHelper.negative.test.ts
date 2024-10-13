@@ -1,9 +1,9 @@
 import { chromium } from 'playwright-extra';
-import { loadWebsiteHelper } from '@app/core/websites/helpers';
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
+import { loadWebsiteHelper } from '@app/core/websiteRunners/helpers';
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('loadWebsiteHelper', () => {
         describe('negative', () => {
@@ -31,7 +31,7 @@ describe('core', () => {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
               } as any as typeof chromium;
 
-              const path = 'core/websites/helpers/loadWebsiteHelper/positive';
+              const path = 'core/websiteRunners/helpers/loadWebsiteHelper/positive';
               const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
               // Act

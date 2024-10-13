@@ -1,11 +1,11 @@
-import { acceptCookiesHelper, loadWebsiteHelper } from '@app/core/websites/helpers';
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
+import { acceptCookiesHelper, loadWebsiteHelper } from '@app/core/websiteRunners/helpers';
 
-const path = 'core/websites/helpers/acceptCookiesHelper/negative';
+const path = 'core/websiteRunners/helpers/acceptCookiesHelper/negative';
 const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('acceptCookiesHelper', () => {
         describe('negative', () => {

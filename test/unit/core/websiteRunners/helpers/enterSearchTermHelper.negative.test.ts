@@ -1,19 +1,17 @@
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
-import { acceptCookiesHelper, enterSearchTermHelper, loadWebsiteHelper } from '@app/core/websites/helpers';
+import { acceptCookiesHelper, enterSearchTermHelper, loadWebsiteHelper } from '@app/core/websiteRunners/helpers';
 
 const searchTerm = 'MOCK_SEARCH_TERM';
-const path = 'core/websites/helpers/enterSearchTermHelper/negative';
+const path = 'core/websiteRunners/helpers/enterSearchTermHelper/negative';
 const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('enterSearchTermHelper', () => {
         describe('negative', () => {
           describe('should return false', () => {
             test("when 'url' represents a valid web page WITHOUT a 'Search' input", async () => {
-              // Arrange
-
               // Act
               const page = await loadWebsiteHelper({ url });
               const hasAcceptedCookies = await acceptCookiesHelper({ page });

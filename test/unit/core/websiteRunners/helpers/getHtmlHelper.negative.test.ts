@@ -1,8 +1,8 @@
-import { getHtmlHelper, loadWebsiteHelper } from '@app/core/websites/helpers';
+import { getHtmlHelper, loadWebsiteHelper } from '@app/core/websiteRunners/helpers';
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('getHtmlHelper', () => {
         describe('negative', () => {
@@ -10,7 +10,7 @@ describe('core', () => {
             test("when 'page.content' throws an error", async () => {
               // Arrange
               const errorExpected = 'page.content error';
-              const path = 'core/websites/helpers/getHtmlHelper/positive';
+              const path = 'core/websiteRunners/helpers/getHtmlHelper/positive';
               const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
               const page = await loadWebsiteHelper({ url });
 

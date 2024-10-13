@@ -1,11 +1,11 @@
 import jsdom from 'jsdom';
-import { getHtmlHelper, loadWebsiteHelper } from '@app/core/websites/helpers';
+import { getHtmlHelper, loadWebsiteHelper } from '@app/core/websiteRunners/helpers';
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
 
 const { JSDOM } = jsdom;
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('getHtmlHelper', () => {
         describe('positive', () => {
@@ -13,7 +13,7 @@ describe('core', () => {
             test("when 'url' represents a valid (mocked) web page.", async () => {
               // Arrange
               const titleExpected = 'getHtmlHelperMockHtmlPositive';
-              const path = 'core/websites/helpers/getHtmlHelper/positive';
+              const path = 'core/websiteRunners/helpers/getHtmlHelper/positive';
               const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
               // Act

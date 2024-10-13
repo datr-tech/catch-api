@@ -1,8 +1,8 @@
-import { acceptCookiesHelper, loadWebsiteHelper } from '@app/core/websites/helpers';
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
+import { acceptCookiesHelper, loadWebsiteHelper } from '@app/core/websiteRunners/helpers';
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('acceptCookiesHelper', () => {
         describe('positive', () => {
@@ -10,7 +10,7 @@ describe('core', () => {
             test("when 'url' represents a valid web page with an 'Accept all' button", async () => {
               // Arrange
               const expected = true;
-              const path = 'core/websites/helpers/acceptCookiesHelper/positive';
+              const path = 'core/websiteRunners/helpers/acceptCookiesHelper/positive';
               const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
               // Act

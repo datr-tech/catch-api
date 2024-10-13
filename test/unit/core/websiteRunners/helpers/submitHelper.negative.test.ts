@@ -4,14 +4,14 @@ import {
   enterSearchTermHelper,
   loadWebsiteHelper,
   submitHelper,
-} from '@app/core/websites/helpers';
+} from '@app/core/websiteRunners/helpers';
 
 const searchTerm = 'MOCK_SEARCH_TERM';
-const path = 'core/websites/helpers/submitHelper/negative';
+const path = 'core/websiteRunners/helpers/submitHelper/negative';
 const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('submitHelper', () => {
         describe('negative', () => {

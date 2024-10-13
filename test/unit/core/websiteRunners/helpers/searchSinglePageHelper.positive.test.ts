@@ -1,11 +1,11 @@
 import jsdom from 'jsdom';
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
-import { searchSinglePageHelper } from '@app/core/websites/helpers';
+import { searchSinglePageHelper } from '@app/core/websiteRunners/helpers';
 
 const { JSDOM } = jsdom;
 
 describe('core', () => {
-  describe('websites', () => {
+  describe('websiteRunners', () => {
     describe('helpers', () => {
       describe('searchSingleHelper', () => {
         describe('positive', () => {
@@ -14,7 +14,7 @@ describe('core', () => {
               // Arrange
               const titleExpected = 'searchSinglePageHelperMockHtmlPositive';
               const searchTerm = 'MOCK_SEARCH_TERM';
-              const path = 'core/websites/helpers/searchSinglePageHelper/positive';
+              const path = 'core/websiteRunners/helpers/searchSinglePageHelper/positive';
               const url = `${CONST_ROUTES_MOCK_SERVER}/${path}`;
 
               // Act

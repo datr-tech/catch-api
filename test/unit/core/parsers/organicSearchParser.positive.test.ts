@@ -1,6 +1,6 @@
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
 import { organicSearchParser } from '@app/core/parsers/organicSearchParser';
-import { loadWebsiteHelper } from '@app/core/websites/helpers';
+import { loadWebsiteHelper } from '../../../../src/core/websiteRunners/helpers';
 
 describe('core', () => {
   describe('parsers', () => {
@@ -16,7 +16,6 @@ describe('core', () => {
           const html = await page.content();
           const numOrganicSearchResults = organicSearchParser({ html });
 
-          console.log(" *** NUM ORGANIC SEARCHES ***", numOrganicSearchResults);
           // Assert
           expect(numOrganicSearchResults).toBeGreaterThanOrEqual(0);
         });
