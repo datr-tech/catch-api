@@ -1,6 +1,6 @@
 import { CONST_ROUTES_MOCK_SERVER } from '@app/config/consts';
 import { organicSearchParser } from '@app/core/parsers/organicSearchParser';
-import { loadWebsiteHelper } from '../../../../src/core/websiteRunners/helpers';
+import { loadWebsiteHelper } from '@app/core/runners/helpers';
 
 describe('core', () => {
   describe('parsers', () => {

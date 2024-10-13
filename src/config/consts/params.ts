@@ -1,3 +1,3 @@
-export const CONST_PARAM_SCHEMA_VERSION = 'schemaVersion';
-export const CONST_PARAM_WEBSITE_ID = 'websiteId';
-export const CONST_PARAM_SEARCH_TERM = 'searchTerm';
+export const CONSTS_PARAMS_SCHEMA_VERSION = 'schemaVersion';
+export const CONSTS_PARAMS_WEBSITE_ID = 'websiteId';
+export const CONSTS_PARAMS_SEARCH_TERM = 'searchTerm';
