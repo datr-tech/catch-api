@@ -1,4 +1,4 @@
-import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
+import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
 import { organicParser } from '@app/core/parsers/organic';
 import { loadWebsiteHelper } from '@app/core/runners/helpers';
 
@@ -8,8 +8,7 @@ describe('core', () => {
       describe('positive', () => {
         test('should return the expected number of organic search results', async () => {
           // Arrange
-          const path = 'core/parsers/organic/positive';
-          const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
+          const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/parsers/organic/organicParser.positive.html`;
 
           // Act
           const page = await loadWebsiteHelper({ url });

@@ -1,5 +1,5 @@
 import { chromium } from 'playwright-extra';
-import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
+import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
 import { loadWebsiteHelper } from '@app/core/runners/helpers';
 
 describe('core', () => {
@@ -32,8 +32,7 @@ describe('core', () => {
               } as any as typeof chromium;
 
               // NOTE: the 'positive' HTML is being used below
-              const path = 'core/runners/helpers/loadWebsiteHelper/positive';
-              const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
+              const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/runners/helpers/loadWebsiteHelper.positive.html`;
 
               // Act
               const handler = async () => {

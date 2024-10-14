@@ -1,10 +1,9 @@
 import jsdom from 'jsdom';
-import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
+import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
 import { searchHelper } from '@app/core/runners/helpers';
 
 const { JSDOM } = jsdom;
-const path = 'core/runners/helpers/searchHelper/positive';
-const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
+const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/runners/helpers/searchHelper.positive.html`;
 
 describe('core', () => {
   describe('runners', () => {
