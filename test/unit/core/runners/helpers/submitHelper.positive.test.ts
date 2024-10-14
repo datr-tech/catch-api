@@ -1,8 +1,7 @@
-import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
+import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
 import { acceptCookiesHelper, enterSearchTermHelper, loadWebsiteHelper, submitHelper } from '@app/core/runners/helpers';
 
-const path = 'core/runners/helpers/submitHelper/positive';
-const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
+const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/runners/helpers/submitHelper.positive.html`;
 
 describe('core', () => {
   describe('runners', () => {

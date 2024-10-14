@@ -1,10 +1,9 @@
 import jsdom from 'jsdom';
-import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
+import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
 import { searchSinglePageHelper } from '@app/core/runners/helpers';
 
 const { JSDOM } = jsdom;
-const path = 'core/runners/helpers/searchSinglePageHelper/positive';
-const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
+const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/runners/helpers/searchSinglePageHelper.positive.html`;
 
 describe('core', () => {
   describe('runners', () => {
@@ -19,10 +18,10 @@ describe('core', () => {
 
               // Act
               const html = await searchSinglePageHelper({ url, searchTerm });
-
-              // Assert
               const { document } = new JSDOM(html).window;
               const titleFound = document.title;
+
+              // Assert
               expect(titleFound).toBe(titleExpected);
             });
           });

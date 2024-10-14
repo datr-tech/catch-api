@@ -1,8 +1,7 @@
-import { CONSTS_ROUTES_TEST_SERVER } from '@app/config/consts/routes';
 import { searchSinglePageHelper } from '@app/core/runners/helpers';
+import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
 
-const path = 'core/runners/helpers/searchSinglePageHelper/negative';
-const url = `${CONSTS_ROUTES_TEST_SERVER}/${path}`;
+const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/runners/helpers/searchSinglePageHelper.negative.html`;
 
 describe('core', () => {
   describe('runners', () => {
@@ -10,7 +9,7 @@ describe('core', () => {
       describe('searchSingleHelper', () => {
         describe('negative', () => {
           describe('should return an empty string', () => {
-            test("when 'url' represents a web page without the required elements", async () => {
+            test("when 'url' represents a web page without the required common", async () => {
               // Arrange
               const htmlExpected = '';
               const searchTerm = 'MOCK_SEARCH_TERM';

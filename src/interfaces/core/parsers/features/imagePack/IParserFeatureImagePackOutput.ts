@@ -1,3 +1,5 @@
 export interface IParserFeatureImagePackOutput {
-  title: string;
+  hasImagePack: boolean;
+  hasImagePackHeaderTitleWrapper: boolean;
+  hasImagePackSingleImageWrapper: boolean;
 }
