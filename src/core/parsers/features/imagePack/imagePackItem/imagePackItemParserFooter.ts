@@ -4,8 +4,9 @@ import { IHandlerOutputImagePackItemFooter } from '@app/interfaces/core/parsers/
 import { imagePackItemParserFooterDomain } from './imagePackItemParserFooterDomain';
 import { imagePackItemParserFooterIcon } from './imagePackItemParserFooterIcon';
 import { imagePackItemParserFooterText } from './imagePackItemParserFooterText';
+import { CONST_DOM_IMAGE_PACK_ITEM_FOOTER_ROOT_EL } from '@app/config/consts/dom';
 
-const elName = '.T3Fozb.s2pXAe.OdBhM.zUdppc.ZTblUe';
+const elName = CONST_DOM_IMAGE_PACK_ITEM_FOOTER_ROOT_EL;
 const handler: IHandler = async ({ el }) =>
   ({
     domain: await imagePackItemParserFooterDomain.parse({ elParent: el }),

@@ -4,8 +4,9 @@ import { IHandlerOutputImagePackItem } from '@app/interfaces/core/parsers/featur
 import { imagePackItemParserFooter } from './imagePackItemParserFooter';
 import { imagePackItemParserImg } from './imagePackItemParserImg';
 import { imagePackItemParserLink } from './imagePackItemParserLink';
+import { CONST_DOM_IMAGE_PACK_ITEM_ROOT_EL } from '@app/config/consts/dom';
 
-const elName = '.w43QB.EXH1Ce';
+const elName = CONST_DOM_IMAGE_PACK_ITEM_ROOT_EL;
 const handler: IHandler = async ({ el }) =>
   ({
     footer: await imagePackItemParserFooter.parse({ elParent: el }),
