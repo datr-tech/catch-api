@@ -1,7 +1,7 @@
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
 import { parserBuilder } from '@app/core/builders';
 import { loadWebsiteHelper } from '@app/core/runners/helpers';
-import { IHandler } from '@app/interfaces/core/builders/parserBuilder';
+import { IHandler } from '@app/interfaces/core/builders/parserBuilder/handlers';
 
 const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/builders/parserBuilder.negative.html`;
 

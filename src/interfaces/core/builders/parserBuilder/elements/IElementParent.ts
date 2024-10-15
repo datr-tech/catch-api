@@ -1,3 +1,3 @@
-import { Page } from 'playwright';
+import { Page, Locator } from 'playwright';
 
 export type IElementParent = Locator | Page;

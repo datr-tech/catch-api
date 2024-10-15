@@ -1,12 +1,7 @@
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
-import { imagePackHeaderParserText } from '@app/core/parsers/features/imagePack/imagePackHeader';
+import { imagePackHeaderParser, imagePackHeaderParserText } from '@app/core/parsers/features/imagePack/imagePackHeader';
+import { imagePackHeaderParserTextDataPositive } from '@appTest/fixtures/core/parsers/features/imagePack/imagePackHeader';
 import { loadWebsiteHelper } from '@app/core/runners/helpers';
-
-const positiveTestData = [
-  { name: 'australia', path: 'core/parsers/features/imagePack/imagePackFeatureParser.australian.coast.html' },
-  { name: 'climbing', path: 'core/parsers/features/imagePack/imagePackFeatureParser.climbing.html' },
-  { name: 'vw.golf', path: 'core/parsers/features/imagePack/imagePackFeatureParser.vw.golf.html' },
-];
 
 describe('core', () => {
   describe('parsers', () => {
@@ -15,18 +10,22 @@ describe('core', () => {
         describe('imagePackHeader', () => {
           describe('imagePackHeaderParserText', () => {
             describe('positive', () => {
-              test.each(positiveTestData)("should return the expected 'text' for $name", async ({ path }) => {
-                // Arrange
-                const textExpected = 'Images';
-                const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
+              test.each(imagePackHeaderParserTextDataPositive)(
+                "should return 'textExpected' for common.$name",
+                async ({ path }) => {
+                  // Arrange
+                  const textExpected = 'Images';
+                  const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
-                // Act
-                const elParent = await loadWebsiteHelper({ url });
-                const textFound = await imagePackHeaderParserText.parse({ elParent });
+                  // Act
+                  const page = await loadWebsiteHelper({ url });
+                  const imagePackHeader = page.locator(imagePackHeaderParser.elName).first();
+                  const textFound = await imagePackHeaderParserText.parse({ elParent: imagePackHeader });
 
-                // Assert
-                expect(textFound).toBe(textExpected);
-              });
+                  // Assert
+                  expect(textFound).toBe(textExpected);
+                },
+              );
             });
           });
         });
