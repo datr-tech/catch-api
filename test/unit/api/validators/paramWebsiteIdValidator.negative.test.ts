@@ -23,16 +23,23 @@ describe('api', () => {
         test.each(negativeTestData)(
           "when the value of the 'websiteId' property within 'params' is '$websiteId' (from 'negativeTestData)",
           async ({ expected, websiteId }) => {
-            // Arrange
+
+            /*
+             * Arrange
+             */
             const params = { websiteId };
             const req = requestBuilder(params) as Request;
 
-            // Act
+            /*
+             * Act
+             */
             const { context } = await paramWebsiteIdValidator.run(req);
             const { errors } = context;
             const found = errors.length;
 
-            // Assert
+            /*
+             * Assert
+             */
             expect(found).toBe(expected);
           },
         );

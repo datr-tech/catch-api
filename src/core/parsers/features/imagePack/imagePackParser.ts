@@ -4,9 +4,9 @@ import { imagePackItemsParser } from './imagePackItemsParser';
 import { IHandler } from '@app/interfaces/core/builders/parserBuilder/handlers';
 import { IHandlerOutputImagePackHeader } from '@app/interfaces/core/parsers/features/imagePack/imagePackHeader';
 import { IHandlerOutputImagePack, IHandlerOutputImagePackItems } from '@app/interfaces/core/parsers/features/imagePack';
-import { CONST_DOM_IMAGE_PACK_ROOT_EL } from '@app/config/consts/dom';
+import { CONSTS_DOM_IMAGE_PACK_ROOT_EL } from '@app/config/consts/dom';
 
-const elName = CONST_DOM_IMAGE_PACK_ROOT_EL;
+const elName = CONSTS_DOM_IMAGE_PACK_ROOT_EL;
 const handler: IHandler = async ({ el }) =>
   ({
     header: (await imagePackHeaderParser.parse({ elParent: el })) as IHandlerOutputImagePackHeader,

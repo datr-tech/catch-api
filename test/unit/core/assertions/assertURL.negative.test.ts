@@ -9,15 +9,22 @@ describe('core', () => {
         test.each(negativeTestData)(
           "when the value of the 'url' property is '$url' (from 'negativeTestData)",
           async ({ url }) => {
-            // Arrange
+
+            /*
+             * Arrange
+             */
             const errorExpected = 'Invalid URL';
 
-            // Act
+            /*
+             * Act
+             */
             const handler = () => {
               assertURL({ url });
             };
 
-            // Assert
+            /*
+             * Assert
+             */
             expect(handler).toThrow(errorExpected);
           },
         );

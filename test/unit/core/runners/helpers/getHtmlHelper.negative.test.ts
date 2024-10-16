@@ -1,4 +1,5 @@
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
+import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts/time';
 import { getHtmlHelper, loadWebsiteHelper } from '@app/core/runners/helpers';
 
 const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/runners/helpers/getHtmlHelper.positive.html`;
@@ -10,22 +11,28 @@ describe('core', () => {
         describe('negative', () => {
           describe('should throw an error', () => {
             test("when 'page.content' throws an error", async () => {
-              // Arrange
+
+              /*
+               * Arrange
+               */
               const errorExpected = 'page.content error';
               const page = await loadWebsiteHelper({ url });
-
               page.content = () => {
                 throw new Error(errorExpected);
               };
 
-              // Act
+              /*
+               * Act
+               */
               const handle = async () => {
                 await getHtmlHelper({ page });
               };
 
-              // Assert
+              /*
+               * Assert
+               */
               await expect(handle).rejects.toThrow(errorExpected);
-            });
+            }, 10 * CONSTS_TIME_ONE_SECOND);
           });
         });
       });

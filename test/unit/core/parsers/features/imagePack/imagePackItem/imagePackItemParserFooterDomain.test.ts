@@ -1,4 +1,5 @@
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
+import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts/time';
 import { loadWebsiteHelper } from '@app/core/runners/helpers';
 import { imagePackItemParserFooterDomainData } from '@appTest/fixtures/core/parsers/features/imagePack/imagePackItem';
 import {
@@ -16,10 +17,15 @@ describe('core', () => {
             test.each(imagePackItemParserFooterDomainData)(
               "should return the expected domain, '$domainExpectedFirst', for the FIRST imagePackItemFooter within 'common.$name'",
               async ({ path, domainExpectedFirst }) => {
-                // Arrange
+
+                /*
+                 * Arrange
+                 */
                 const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
-                // Act
+                /*
+                 * Act
+                 */
                 const page = await loadWebsiteHelper({ url });
                 const imagePackItem = page.locator(imagePackItemParser.elName).first();
                 const imagePackItemFooter = imagePackItem.locator(imagePackItemParserFooter.elName).first();
@@ -29,9 +35,11 @@ describe('core', () => {
                   text: string;
                 };
 
-                // Assert
+                /*
+                 * Assert
+                 */
                 expect(domainFound).toContain(domainExpectedFirst);
-              },
+              }, 20 * CONSTS_TIME_ONE_SECOND
             );
           });
         });

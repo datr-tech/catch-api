@@ -11,17 +11,24 @@ describe('core', () => {
       describe('positive', () => {
         describe("should return parser.parse'", () => {
           test("when 'elName' and 'handler' are valid", async () => {
-            // Arrange
+
+            /*
+             * Arrange
+             */
             const elName = '.parser';
             const expected = 'PARSER';
             const handler: IHandler = ({ el }) => el.innerText();
 
-            // Act
+            /*
+             * Act
+             */
             const parser = parserBuilder({ elName, handler });
             const elParent = await loadWebsiteHelper({ url });
             const found = await parser.parse({ elParent });
 
-            // Assert
+            /*
+             * Assert
+             */
             expect(found).toBe(expected);
           });
         });

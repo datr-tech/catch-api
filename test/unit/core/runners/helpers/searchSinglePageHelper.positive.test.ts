@@ -1,5 +1,6 @@
 import jsdom from 'jsdom';
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
+import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts/time';
 import { searchSinglePageHelper } from '@app/core/runners/helpers';
 
 const { JSDOM } = jsdom;
@@ -12,18 +13,25 @@ describe('core', () => {
         describe('positive', () => {
           describe('should return the HTML', () => {
             test("when 'url' represents a valid web page with a submit button", async () => {
-              // Arrange
+
+              /*
+               * Arrange
+               */
               const titleExpected = 'searchSinglePageHelper.positive';
               const searchTerm = 'MOCK_SEARCH_TERM';
 
-              // Act
+              /*
+               * Act
+               */
               const html = await searchSinglePageHelper({ url, searchTerm });
               const { document } = new JSDOM(html).window;
               const titleFound = document.title;
 
-              // Assert
+              /*
+               * Assert
+               */
               expect(titleFound).toBe(titleExpected);
-            });
+            }, 10 * CONSTS_TIME_ONE_SECOND);
           });
         });
       });

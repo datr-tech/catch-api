@@ -1,7 +1,7 @@
 export const imagePackItemParserData = [
   {
     name: 'aston',
-    path: 'core/parsers/features/imagePack/common.aston.html',
+    path: 'core/parsers/common.aston.html',
     expectedFirst: {
       footer: {
         domain: 'Wikipedia',

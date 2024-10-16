@@ -11,32 +11,46 @@ describe('core', () => {
       describe('negative', () => {
         describe('should return undefined', () => {
           test("when 'elName' is not found", async () => {
-            // Arrange
+
+            /*
+             * Arrange
+             */
             const elName = '.UNKNOWN';
             const handler: IHandler = ({ el }) => el.innerText();
 
-            // Act
+            /*
+             * Act
+             */
             const parser = parserBuilder({ elName, handler });
             const elParent = await loadWebsiteHelper({ url });
             const found = await parser.parse({ elParent });
 
-            // Assert
+            /*
+             * Assert
+             */
             expect(found).toBeUndefined();
           });
         });
         describe('should throw an error', () => {
           test("when 'elName' is an empty string", async () => {
-            // Arrange
+
+            /*
+             * Arrange
+             */
             const elName = '';
             const errorExpected = "'elName' must be a non-empty string";
             const handler: IHandler = ({ el }) => el.innerText();
 
-            // Act
+            /*
+             * Act
+             */
             const errorHandler = () => {
               parserBuilder({ elName, handler });
             };
 
-            // Assert
+            /*
+             * Assert
+             */
             expect(errorHandler).toThrow(errorExpected);
           });
         });

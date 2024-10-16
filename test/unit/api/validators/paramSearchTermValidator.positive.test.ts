@@ -18,16 +18,23 @@ describe('api', () => {
         test.each(positiveTestData)(
           "when the value of the 'searchTerm' property within 'params' is '$searchTerm' (from 'positiveTestData)",
           async ({ expected, searchTerm }) => {
-            // Arrange
+
+            /*
+             * Arrange
+             */
             const params = { searchTerm };
             const req = requestBuilder(params) as Request;
 
-            // Act
+            /*
+             * Act
+             */
             const { context } = await paramSearchTermValidator.run(req);
             const { errors } = context;
             const found = errors.length;
 
-            // Assert
+            /*
+             * Assert
+             */
             expect(found).toBe(expected);
           },
         );

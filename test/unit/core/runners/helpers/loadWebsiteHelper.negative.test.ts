@@ -1,5 +1,6 @@
 import { chromium } from 'playwright-extra';
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
+import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts/time';
 import { loadWebsiteHelper } from '@app/core/runners/helpers';
 
 describe('core', () => {
@@ -9,20 +10,30 @@ describe('core', () => {
         describe('negative', () => {
           describe('should throw an error', () => {
             test("when 'url' is invalid", async () => {
-              // Arrange
+
+              /*
+               * Arrange
+               */
               const errorExpected = 'Invalid URL';
               const url = 'INVALID_URL';
 
-              // Act
+              /*
+               * Act
+               */
               const handler = async () => {
                 await loadWebsiteHelper({ url });
               };
 
-              // Assert
+              /*
+               * Assert
+               */
               await expect(handler).rejects.toThrow(errorExpected);
-            });
+            }, 10 * CONSTS_TIME_ONE_SECOND);
             test("when 'chromium.use' throws an error", async () => {
-              // Arrange
+
+              /*
+               * Arrange
+               */
               const errorExpected = 'chromium.use error';
               const chromiumLocal = {
                 use: () => {
@@ -34,14 +45,18 @@ describe('core', () => {
               // NOTE: the 'positive' HTML is being used below
               const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/core/runners/helpers/loadWebsiteHelper.positive.html`;
 
-              // Act
+              /*
+               * Act
+               */
               const handler = async () => {
                 await loadWebsiteHelper({ url, chromiumLocal });
               };
 
-              // Assert
+              /*
+               * Assert
+               */
               await expect(handler).rejects.toThrow(errorExpected);
-            });
+            }, 10 * CONSTS_TIME_ONE_SECOND);
           });
         });
       });

@@ -14,16 +14,23 @@ describe('api', () => {
         test.each(positiveTestData)(
           "when the value of the 'schemaVersion' property within 'params' is '$schemaVersion' (from 'positiveTestData)",
           async ({ expected, schemaVersion }) => {
-            // Arrange
+
+            /*
+             * Arrange
+             */
             const params = { schemaVersion };
             const req = requestBuilder(params) as Request;
 
-            // Act
+            /*
+             * Act
+             */
             const { context } = await paramSchemaVersionValidator.run(req);
             const { errors } = context;
             const found = errors.length;
 
-            // Assert
+            /*
+             * Assert
+             */
             expect(found).toBe(expected);
           },
         );

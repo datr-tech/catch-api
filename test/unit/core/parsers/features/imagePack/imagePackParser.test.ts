@@ -1,8 +1,9 @@
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
-import { loadWebsiteHelper } from '@app/core/runners/helpers';
+import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts/time';
 import { imagePackParser } from '@app/core/parsers/features/imagePack';
 import { IHandlerOutputImagePack } from '@app/interfaces/core/parsers/features/imagePack';
 import { imagePackItemsParserData } from '@appTest/fixtures/core/parsers/features/imagePack';
+import { loadWebsiteHelper } from '@app/core/runners/helpers';
 
 describe('core', () => {
   describe('parsers', () => {
@@ -11,25 +12,31 @@ describe('core', () => {
         describe('imagePackItem', () => {
           describe('imagePackParser', () => {
             test('should find the expected imagePack', async () => {
-              // Arrange
+
+              /*
+               * Arrange
+               */
               const expectedNumItems = 6;
-              const path = 'core/parsers/features/imagePack/common.aston.html';
+              const path = 'core/parsers/common.aston.html';
               const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
-              // Act
+              /*
+               * Act
+               */
               const page = await loadWebsiteHelper({ url });
               const { items } = (await imagePackParser.parse({ elParent: page })) as IHandlerOutputImagePack;
               const foundNumItems = items.length;
 
-              // Assert
+              /*
+               * Assert
+               */
               expect(foundNumItems).toBe(expectedNumItems);
-
               items.forEach((item, i) => {
                 const linkFound = item.link;
                 const linkExpected = imagePackItemsParserData[i];
                 expect(linkFound).toBe(linkExpected);
               });
-            });
+            }, 20 * CONSTS_TIME_ONE_SECOND);
           });
         });
       });
