@@ -13,14 +13,21 @@ describe('core', () => {
               test.each(imagePackHeaderParserTextDataNegative)(
                 'should return undefined for common.$name',
                 async ({ path }) => {
-                  // Arrange
+
+                  /*
+                   * Arrange
+                   */
                   const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
-                  // Act
+                  /*
+                   * Act
+                   */
                   const page = await loadWebsiteHelper({ url });
                   const output = await imagePackHeaderParserText.parse({ elParent: page });
 
-                  // Assert
+                  /*
+                   * Assert
+                   */
                   expect(output).toBeUndefined();
                 },
               );

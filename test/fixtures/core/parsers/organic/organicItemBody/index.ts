@@ -1,0 +1,1 @@
+export { organicItemBodyParserAstonData } from './organicItemBodyParserAstonData';

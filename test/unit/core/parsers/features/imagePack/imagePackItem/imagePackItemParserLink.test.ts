@@ -1,7 +1,7 @@
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
-import { loadWebsiteHelper } from '@app/core/runners/helpers';
 import { imagePackItemParser, imagePackItemParserLink } from '@app/core/parsers/features/imagePack/imagePackItem';
 import { imagePackItemParserLinkData } from '@appTest/fixtures/core/parsers/features/imagePack/imagePackItem';
+import { loadWebsiteHelper } from '@app/core/runners/helpers';
 
 describe('core', () => {
   describe('parsers', () => {
@@ -12,15 +12,22 @@ describe('core', () => {
             test.each(imagePackItemParserLinkData)(
               "should return the expected link, '$linkExpectedFirst', for the first imagePackItem within 'common.$name'",
               async ({ path, linkExpectedFirst }) => {
-                // Arrange
+
+                /*
+                 * Arrange
+                 */
                 const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
-                // Act
+                /*
+                 * Act
+                 */
                 const page = await loadWebsiteHelper({ url });
                 const imagePackItem = page.locator(imagePackItemParser.elName).first();
                 const linkFound = (await imagePackItemParserLink.parse({ elParent: imagePackItem })) as string;
 
-                // Assert
+                /*
+                 * Assert
+                 */
                 expect(linkFound).toContain(linkExpectedFirst);
               },
             );

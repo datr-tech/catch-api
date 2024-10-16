@@ -7,26 +7,42 @@ describe('api', () => {
       describe('negative', () => {
         describe('should return a response with a 404 status', () => {
           test("when an invalid 'schemaVersion' was received", async () => {
-            // Arrange
+
+            /*
+             * Arrange
+             */
             const schemaUrlPath = '/api/schema/ABC';
 
-            // Act
+            /*
+             * Act
+             */
             return request(app)
               .get(schemaUrlPath)
               .then((response) => {
-                // Assert
+
+                /*
+                 * Assert
+                 */
                 expect(response.status).toBe(404);
               });
           });
           test("when an empty 'schemaVersion' was received", async () => {
-            // Arrange
+
+            /*
+             * Arrange
+             */
             const schemaUrlPath = '/api/schema';
 
-            // Act
+            /*
+             * Act
+             */
             return request(app)
               .get(schemaUrlPath)
               .then((response) => {
-                // Assert
+
+                /*
+                 * Assert
+                 */
                 expect(response.status).toBe(404);
               });
           });

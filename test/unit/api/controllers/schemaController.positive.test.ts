@@ -7,12 +7,21 @@ describe('api', () => {
     describe('schemaController', () => {
       describe('positive', () => {
         test('should return the expected schema', () => {
-          // Arrange
+
+          /*
+           * Arrange
+           */
           const schemaExpected = schemaV1;
           const schemaVersion = SchemaVersionEnum.v1;
-          // Act
+
+          /*
+           * Act
+           */
           const schemaFound = schemaController({ schemaVersion });
-          // Assert
+
+          /*
+           * Assert
+           */
           expect(schemaFound).toStrictEqual(schemaExpected);
         });
       });

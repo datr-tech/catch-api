@@ -7,14 +7,23 @@ describe('api', () => {
     describe('schemaRouter', () => {
       describe('positive: should return the expected spec', () => {
         test("when called with '/api/schema/v1'", async () => {
-          // Arrange
+
+          /*
+           * Arrange
+           */
           const schemaUrlPath = '/api/schema/v1';
           const schemaExpected = schemaV1;
-          // Act
+
+          /*
+           * Act
+           */
           return request(app)
             .get(schemaUrlPath)
             .then((response) => {
-              // Assert
+
+              /*
+               * Assert
+               */
               expect(response.status).toBe(200);
               expect(response?.body?.schema).toStrictEqual(schemaExpected);
             });

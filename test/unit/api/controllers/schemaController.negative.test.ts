@@ -6,15 +6,23 @@ describe('api', () => {
     describe('schemaController', () => {
       describe('negative', () => {
         test("should throw an error when receiving an unknown value for 'schemaVersion'", () => {
-          // Arrange
+
+          /*
+           * Arrange
+           */
           const errorExpected = "Unknown 'schemaVersion'";
           const schemaVersion = SchemaVersionEnum.UNKNOWN;
-          // Act
 
+          /*
+           * Act
+           */
           const handler = () => {
             schemaController({ schemaVersion });
           };
-          // Assert
+
+          /*
+           * Assert
+           */
           expect(handler).toThrow(errorExpected);
         });
       });

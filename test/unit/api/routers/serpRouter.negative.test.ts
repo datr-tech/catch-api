@@ -6,14 +6,21 @@ describe('api', () => {
     describe('serpRouter', () => {
       describe('positive: should return an error', () => {
         test("when called with an erroneous 'websiteId', as per '/api/v1/serp/0/abc'", async () => {
-          // Arrange
+          /*
+           * Arrange
+           */
           const specUrlPath = '/api/v1/serp/0/abc';
 
-          // Act
+          /*
+           * Act
+           */
           return request(app)
             .get(specUrlPath)
             .then((response) => {
-              // Assert
+
+              /*
+               * Assert
+               */
               expect(response.status).toBe(404);
               expect(response.body?.error[0].msg).toBe('Invalid value');
               expect(response.body?.error[0].path).toBe('websiteId');
@@ -22,14 +29,22 @@ describe('api', () => {
         });
       });
       test("when called with an erroneous 'searchTerm', as per '/api/v1/serp/1/'", async () => {
-        // Arrange
+
+        /*
+         * Arrange
+         */
         const specUrlPath = '/api/v1/serp/1/';
 
-        // Act
+        /*
+         * Act
+         */
         return request(app)
           .get(specUrlPath)
           .then((response) => {
-            // Assert
+
+            /*
+             * Assert
+             */
             expect(response.status).toBe(404);
           });
       });

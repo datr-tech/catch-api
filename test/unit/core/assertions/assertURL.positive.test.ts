@@ -6,11 +6,20 @@ describe('core', () => {
       describe('positive', () => {
         describe('should return undefined', () => {
           test("when the value of the 'url' param is a valid URL", () => {
-            // Arrange
+
+            /*
+             * Arrange
+             */
             const url = 'https://www.example.com';
-            // Act
+
+            /*
+             * Act
+             */
             const response = assertURL({ url });
-            // Assert
+
+            /*
+             * Assert
+             */
             expect(response).toBeUndefined();
           });
         });
