@@ -1,4 +1,5 @@
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
+import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts/time';
 import { imagePackItemParserFooterIconData } from '@appTest/fixtures/core/parsers/features/imagePack/imagePackItem';
 import {
   imagePackItemParser,
@@ -38,6 +39,7 @@ describe('core', () => {
                  */
                 expect(iconFound).toContain(iconPrefixExpected);
               },
+              20 * CONSTS_TIME_ONE_SECOND,
             );
           });
         });

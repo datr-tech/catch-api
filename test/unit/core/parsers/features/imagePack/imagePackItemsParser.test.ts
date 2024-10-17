@@ -18,7 +18,7 @@ describe('core', () => {
                  * Arrange
                  */
                 const expectedNumItems = 6;
-                const path = 'core/parsers/common.aston.html';
+                const path = 'core/parsers/common/aston.html';
                 const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
                 /*

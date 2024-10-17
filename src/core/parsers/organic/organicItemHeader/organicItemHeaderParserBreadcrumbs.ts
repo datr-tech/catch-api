@@ -4,8 +4,7 @@ import { IHandlerOutputOrganicItemHeaderBreadcrumbs } from 'src/interfaces/core/
 import { CONSTS_DOM_ORGANIC_ITEM_HEADER_BREADCRUMBS_ROOT_EL } from '@app/config/consts/dom';
 
 const elName = CONSTS_DOM_ORGANIC_ITEM_HEADER_BREADCRUMBS_ROOT_EL;
-const handler: IHandler = async ({ el }) =>
-  (await el.first().innerText()) as IHandlerOutputOrganicItemHeaderBreadcrumbs;
+const handler: IHandler = async ({ el }) => (await el.first().innerText()) as IHandlerOutputOrganicItemHeaderBreadcrumbs;
 
 export const organicItemHeaderParserBreadcrumbs = parserBuilder({
   elName,

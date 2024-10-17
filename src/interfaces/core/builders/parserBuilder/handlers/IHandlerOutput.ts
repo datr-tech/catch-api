@@ -28,7 +28,12 @@ import { IHandlerOutputOrganicItem, IHandlerOutputOrganicItems } from '@app/inte
 import {
   IHandlerOutputOrganicItemFooter,
   IHandlerOutputOrganicItemFooterProsCons,
+  IHandlerOutputOrganicItemFooterSecondaryRef,
+  IHandlerOutputOrganicItemFooterSecondaryRefs,
 } from '@app/interfaces/core/parsers/organic/organicItemFooter';
+
+import { IHandlerOutputFeatures } from '@app/interfaces/core/parsers/features';
+import { IHandlerOutputRoot } from '@app/interfaces/core/parsers';
 
 export type IHandlerOutput =
   | IHandlerOutputImagePackHeader
@@ -54,4 +59,8 @@ export type IHandlerOutput =
   | IHandlerOutputOrganicItem
   | IHandlerOutputOrganicItems
   | IHandlerOutputOrganicItemFooter
-  | IHandlerOutputOrganicItemFooterProsCons;
+  | IHandlerOutputOrganicItemFooterProsCons
+  | IHandlerOutputOrganicItemFooterSecondaryRef
+  | IHandlerOutputOrganicItemFooterSecondaryRefs
+  | IHandlerOutputFeatures
+  | IHandlerOutputRoot;

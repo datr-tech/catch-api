@@ -3,6 +3,7 @@ import { IHandlerOutputOrganicItemHeader } from '@app/interfaces/core/parsers/or
 import { IHandlerOutputOrganicItemFooter } from '@app/interfaces/core/parsers/organic/organicItemFooter';
 
 export type IHandlerOutputOrganicItem = {
+  id: number;
   body: IHandlerOutputOrganicItemBody;
   header: IHandlerOutputOrganicItemHeader;
   footer: IHandlerOutputOrganicItemFooter;

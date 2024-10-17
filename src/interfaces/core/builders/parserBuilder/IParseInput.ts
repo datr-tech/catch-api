@@ -2,5 +2,6 @@ import { IElementParent } from '@app/interfaces/core/builders/parserBuilder/elem
 
 export interface IParseInput {
   elParent: IElementParent;
+  id?: number;
   useParent?: boolean;
 }

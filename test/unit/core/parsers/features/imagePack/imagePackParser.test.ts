@@ -18,22 +18,25 @@ describe('core', () => {
                  * Arrange
                  */
                 const expectedNumItems = 6;
-                const path = 'core/parsers/common.aston.html';
+                const expectedImagePackHeaderLink = undefined;
+                const path = 'core/parsers/common/aston.html';
                 const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
                 /*
                  * Act
                  */
                 const page = await loadWebsiteHelper({ url });
-                const { items } = (await imagePackParser.parse({
+                const { items, header } = (await imagePackParser.parse({
                   elParent: page,
                 })) as IHandlerOutputImagePack;
+                const { link } = header;
                 const foundNumItems = items.length;
 
                 /*
                  * Assert
                  */
                 expect(foundNumItems).toBe(expectedNumItems);
+                expect(link).toBe(expectedImagePackHeaderLink);
                 items.forEach((item, i) => {
                   const linkFound = item.link;
                   const linkExpected = imagePackItemsParserData[i];
