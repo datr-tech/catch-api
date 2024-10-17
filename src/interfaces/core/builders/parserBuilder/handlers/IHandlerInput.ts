@@ -2,4 +2,5 @@ import { IElementCurrent } from '@app/interfaces/core/builders/parserBuilder/ele
 
 export interface IHandlerInput {
   el: IElementCurrent;
+  id?: number;
 }

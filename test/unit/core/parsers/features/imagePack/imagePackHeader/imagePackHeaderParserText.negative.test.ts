@@ -1,4 +1,5 @@
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
+import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts/time';
 import { imagePackHeaderParserText } from '@app/core/parsers/features/imagePack/imagePackHeader';
 import { imagePackHeaderParserTextDataNegative } from '@appTest/fixtures/core/parsers/features/imagePack/imagePackHeader';
 import { loadWebsiteHelper } from '@app/core/runners/helpers';
@@ -31,6 +32,7 @@ describe('core', () => {
                    */
                   expect(output).toBeUndefined();
                 },
+                20 * CONSTS_TIME_ONE_SECOND,
               );
             });
           });

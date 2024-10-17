@@ -5,10 +5,7 @@ import { IRouterBuilderByTestType } from '@appTest/server/interfaces/builders';
 
 const NOT_FOUND = 'Not found';
 
-export const routerBuilderByTestType: IRouterBuilderByTestType = ({
-  filesToServeByTestType,
-  baseRoute = CONSTS_ROUTES_BASE,
-}): IRouter => {
+export const routerBuilderByTestType: IRouterBuilderByTestType = ({ filesToServeByTestType, baseRoute = CONSTS_ROUTES_BASE }): IRouter => {
   const router = express.Router({ mergeParams: true });
 
   router.get(baseRoute, async (req: Request, res: Response) => {

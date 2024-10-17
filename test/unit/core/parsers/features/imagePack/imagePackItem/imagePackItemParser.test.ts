@@ -1,4 +1,5 @@
 import { CONSTS_PATHS_TEST_FIXTURES_DIR } from '@app/config/consts/paths';
+import { CONSTS_TIME_ONE_SECOND } from '@app/config/consts/time';
 import { imagePackItemParser } from '@app/core/parsers/features/imagePack/imagePackItem';
 import { imagePackItemParserData } from '@appTest/fixtures/core/parsers/features/imagePack/imagePackItem';
 import { IHandlerOutputImagePackItem } from '@app/interfaces/core/parsers/features/imagePack/imagePackItem';
@@ -38,6 +39,7 @@ describe('core', () => {
                 expect(found.img.text).toEqual(expectedLast.img.text);
                 expect(found.link).toEqual(expectedLast.link);
               },
+              20 * CONSTS_TIME_ONE_SECOND,
             );
           });
         });

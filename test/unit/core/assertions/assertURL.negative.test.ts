@@ -6,27 +6,24 @@ describe('core', () => {
   describe('assertions', () => {
     describe('assertURL', () => {
       describe('negative: should throw an error', () => {
-        test.each(negativeTestData)(
-          "when the value of the 'url' property is '$url' (from 'negativeTestData)",
-          async ({ url }) => {
-            /*
-             * Arrange
-             */
-            const errorExpected = 'Invalid URL';
+        test.each(negativeTestData)("when the value of the 'url' property is '$url' (from 'negativeTestData)", async ({ url }) => {
+          /*
+           * Arrange
+           */
+          const errorExpected = 'Invalid URL';
 
-            /*
-             * Act
-             */
-            const handler = () => {
-              assertURL({ url });
-            };
+          /*
+           * Act
+           */
+          const handler = () => {
+            assertURL({ url });
+          };
 
-            /*
-             * Assert
-             */
-            expect(handler).toThrow(errorExpected);
-          },
-        );
+          /*
+           * Assert
+           */
+          expect(handler).toThrow(errorExpected);
+        });
       });
     });
   });

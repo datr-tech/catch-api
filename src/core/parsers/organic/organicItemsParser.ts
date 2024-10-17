@@ -9,8 +9,11 @@ const handler: IHandler = async ({ el }) => {
   const organicItems: IHandlerOutputOrganicItem[] = [];
 
   for (let i = 0; i < (await el.count()); i++) {
+    const id = i + 1;
+
     const organicItem = (await organicItemParser.parse({
       elParent: el.nth(i),
+      id,
       useParent: true,
     })) as IHandlerOutputOrganicItem;
 

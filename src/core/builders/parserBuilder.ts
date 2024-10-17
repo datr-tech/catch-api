@@ -6,12 +6,12 @@ export const parserBuilder: IParserBuilder = ({ elName, handler }) => {
     throw new TypeError("'elName' must be a non-empty string");
   }
 
-  const parse: IParse = async ({ elParent, useParent = false }) => {
+  const parse: IParse = async ({ elParent, id, useParent = false }) => {
     const el: IElementCurrent = useParent ? (elParent as IElementCurrent) : elParent.locator(elName);
 
     const hasElementBeenFound = (await el.count()) > 0;
 
-    return hasElementBeenFound ? await handler({ el }) : undefined;
+    return hasElementBeenFound ? await handler({ el, id }) : undefined;
   };
 
   return { parse, elName };

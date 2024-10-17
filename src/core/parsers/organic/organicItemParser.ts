@@ -7,11 +7,12 @@ import { organicItemFooterParser } from '@app/core/parsers/organic/organicItemFo
 import { CONSTS_DOM_ORGANIC_ITEM_ROOT_EL } from '@app/config/consts/dom';
 
 const elName = CONSTS_DOM_ORGANIC_ITEM_ROOT_EL;
-const handler: IHandler = async ({ el }) =>
+const handler: IHandler = async ({ el, id }) =>
   ({
+    id,
     body: await organicItemBodyParser.parse({ elParent: el }),
     header: await organicItemHeaderParser.parse({ elParent: el }),
-    footer: await organicItemFooterParser.parse({ elParent: el }),
+    footer: (await organicItemFooterParser.parse({ elParent: el })) || undefined,
   }) as IHandlerOutputOrganicItem;
 
 export const organicItemParser = parserBuilder({ elName, handler });

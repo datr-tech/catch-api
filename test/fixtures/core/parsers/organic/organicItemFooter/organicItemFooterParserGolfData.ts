@@ -1,5 +1,9 @@
 import { IHandlerOutputOrganicItemFooter } from 'src/interfaces/core/parsers/organic/organicItemFooter';
+import { organicItemFooterParserSecondaryRefsGolfData } from './organicItemFooterParserSecondaryRefsGolfData';
+
+const { secondaryRefs } = organicItemFooterParserSecondaryRefsGolfData;
 
 export const organicItemFooterParserGolfData = {
-  prosCons: ' Great value for money ⋅ Fast charging ⋅ Enhanced performance ⋅ View full list',
+  prosCons: undefined,
+  secondaryRefs,
 } as IHandlerOutputOrganicItemFooter;
