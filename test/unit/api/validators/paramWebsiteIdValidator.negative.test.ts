@@ -23,7 +23,6 @@ describe('api', () => {
         test.each(negativeTestData)(
           "when the value of the 'websiteId' property within 'params' is '$websiteId' (from 'negativeTestData)",
           async ({ expected, websiteId }) => {
-
             /*
              * Arrange
              */

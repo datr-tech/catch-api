@@ -7,7 +7,6 @@ describe('api', () => {
       describe('negative', () => {
         describe('should return a response with a 404 status', () => {
           test("when an invalid 'schemaVersion' was received", async () => {
-
             /*
              * Arrange
              */
@@ -19,7 +18,6 @@ describe('api', () => {
             return request(app)
               .get(schemaUrlPath)
               .then((response) => {
-
                 /*
                  * Assert
                  */
@@ -27,7 +25,6 @@ describe('api', () => {
               });
           });
           test("when an empty 'schemaVersion' was received", async () => {
-
             /*
              * Arrange
              */
@@ -39,7 +36,6 @@ describe('api', () => {
             return request(app)
               .get(schemaUrlPath)
               .then((response) => {
-
                 /*
                  * Assert
                  */

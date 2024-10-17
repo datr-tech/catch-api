@@ -17,7 +17,6 @@ describe('api', () => {
           return request(app)
             .get(specUrlPath)
             .then((response) => {
-
               /*
                * Assert
                */
@@ -29,7 +28,6 @@ describe('api', () => {
         });
       });
       test("when called with an erroneous 'searchTerm', as per '/api/v1/serp/1/'", async () => {
-
         /*
          * Arrange
          */
@@ -41,7 +39,6 @@ describe('api', () => {
         return request(app)
           .get(specUrlPath)
           .then((response) => {
-
             /*
              * Assert
              */

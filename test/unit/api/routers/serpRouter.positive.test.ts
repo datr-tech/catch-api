@@ -6,7 +6,6 @@ describe('api', () => {
     describe('serpRouter', () => {
       describe("positive: should return the expected 'websiteId' and 'searchTerm' values", () => {
         test("when called with '/api/v1/serp/1/abc'", async () => {
-
           /*
            * Arrange
            */
@@ -20,7 +19,6 @@ describe('api', () => {
           return request(app)
             .get(specUrlPath)
             .then((response) => {
-
               /*
                * Assert
                */

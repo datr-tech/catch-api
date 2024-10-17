@@ -12,7 +12,6 @@ describe('core', () => {
             test.each(imagePackItemParserImgData)(
               "should return the expected 'src' and 'text' property for the last imagePackItem within 'common.$name'",
               async ({ path, srcPrefixExpected, textExpected }) => {
-
                 /*
                  * Arrange
                  */
@@ -23,7 +22,9 @@ describe('core', () => {
                  */
                 const page = await loadWebsiteHelper({ url });
                 const imagePackItem = page.locator(imagePackItemParser.elName).last();
-                const { src, text } = (await imagePackItemParserImg.parse({ elParent: imagePackItem })) as {
+                const { src, text } = (await imagePackItemParserImg.parse({
+                  elParent: imagePackItem,
+                })) as {
                   src: string;
                   text: string;
                 };

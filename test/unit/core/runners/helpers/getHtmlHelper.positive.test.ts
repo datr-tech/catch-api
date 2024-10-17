@@ -12,27 +12,30 @@ describe('core', () => {
       describe('getHtmlHelper', () => {
         describe('positive', () => {
           describe('should return the HTML content', () => {
-            test("when 'url' represents a valid (mocked) web page.", async () => {
+            test(
+              "when 'url' represents a valid (mocked) web page.",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const titleExpected = 'getHtmlHelper.positive';
 
-              /*
-               * Arrange
-               */
-              const titleExpected = 'getHtmlHelper.positive';
+                /*
+                 * Act
+                 */
+                await loadWebsiteHelper({ url });
+                const page = await loadWebsiteHelper({ url });
+                const html = await getHtmlHelper({ page });
+                const { document } = new JSDOM(html).window;
+                const titleFound = document.title;
 
-              /*
-               * Act
-               */
-              await loadWebsiteHelper({ url });
-              const page = await loadWebsiteHelper({ url });
-              const html = await getHtmlHelper({ page });
-              const { document } = new JSDOM(html).window;
-              const titleFound = document.title;
-
-              /*
-               * Assert
-               */
-              expect(titleFound).toBe(titleExpected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(titleFound).toBe(titleExpected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

@@ -12,7 +12,6 @@ describe('core', () => {
             test.each(imagePackItemParserLinkData)(
               "should return the expected link, '$linkExpectedFirst', for the first imagePackItem within 'common.$name'",
               async ({ path, linkExpectedFirst }) => {
-
                 /*
                  * Arrange
                  */
@@ -23,7 +22,9 @@ describe('core', () => {
                  */
                 const page = await loadWebsiteHelper({ url });
                 const imagePackItem = page.locator(imagePackItemParser.elName).first();
-                const linkFound = (await imagePackItemParserLink.parse({ elParent: imagePackItem })) as string;
+                const linkFound = (await imagePackItemParserLink.parse({
+                  elParent: imagePackItem,
+                })) as string;
 
                 /*
                  * Assert

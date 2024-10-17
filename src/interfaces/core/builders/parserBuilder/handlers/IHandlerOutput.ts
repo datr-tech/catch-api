@@ -24,10 +24,7 @@ import {
   IHandlerOutputOrganicItemHeaderTitle,
 } from '@app/interfaces/core/parsers/organic/organicItemHeader';
 import { IHandlerOutputOrganicItemBody } from '@app/interfaces/core/parsers/organic/organicItemBody';
-import {
-  IHandlerOutputOrganicItem,
-  IHandlerOutputOrganicItems
-} from '@app/interfaces/core/parsers/organic';
+import { IHandlerOutputOrganicItem, IHandlerOutputOrganicItems } from '@app/interfaces/core/parsers/organic';
 
 export type IHandlerOutput =
   | IHandlerOutputImagePackHeader

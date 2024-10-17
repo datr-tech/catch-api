@@ -9,7 +9,6 @@ describe('core', () => {
         test.each(negativeTestData)(
           "when the value of the 'url' property is '$url' (from 'negativeTestData)",
           async ({ url }) => {
-
             /*
              * Arrange
              */

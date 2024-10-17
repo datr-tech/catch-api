@@ -10,29 +10,32 @@ describe('core', () => {
     describe('organic', () => {
       describe('organicItemBody', () => {
         describe('organicItemBodyParser', () => {
-          test("should return the 'organicItemBodyExpected'", async () => {
+          test(
+            "should return the 'organicItemBodyExpected'",
+            async () => {
+              /*
+               * Arrange
+               */
+              const path = 'core/parsers/common.aston.html';
+              const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
+              const organicItemBodyExpected = organicItemBodyParserAstonData;
 
-            /*
-             * Arrange
-             */
-            const path = 'core/parsers/common.aston.html';
-            const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
-            const organicItemBodyExpected = organicItemBodyParserAstonData;
+              /*
+               * Act
+               */
+              const page = await loadWebsiteHelper({ url });
+              const organicItem = page.locator(CONSTS_DOM_ORGANIC_ITEM_ROOT_EL).first();
+              const organicItemBodyFound = (await organicItemBodyParser.parse({
+                elParent: organicItem,
+              })) as string;
 
-            /*
-             * Act
-             */
-            const page = await loadWebsiteHelper({ url });
-            const organicItem = page.locator(CONSTS_DOM_ORGANIC_ITEM_ROOT_EL).first();
-            const organicItemBodyFound = (await organicItemBodyParser.parse({
-              elParent: organicItem,
-            })) as string;
-
-            /*
-             * Assert
-             */
-            expect(organicItemBodyFound).toEqual(organicItemBodyExpected);
-          }, 10 * CONSTS_TIME_ONE_SECOND);
+              /*
+               * Assert
+               */
+              expect(organicItemBodyFound).toEqual(organicItemBodyExpected);
+            },
+            10 * CONSTS_TIME_ONE_SECOND,
+          );
         });
       });
     });

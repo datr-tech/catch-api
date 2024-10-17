@@ -10,24 +10,27 @@ describe('core', () => {
       describe('loadWebsiteHelper', () => {
         describe('positive', () => {
           describe("should return a Playwright 'page' object", () => {
-            test("when 'url' represents a valid (mocked) web page. Check that 'page.title()' is correct", async () => {
+            test(
+              "when 'url' represents a valid (mocked) web page. Check that 'page.title()' is correct",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const titleExpected = 'loadWebsiteHelper.positive';
 
-              /*
-               * Arrange
-               */
-              const titleExpected = 'loadWebsiteHelper.positive';
+                /*
+                 * Act
+                 */
+                const page = await loadWebsiteHelper({ url });
+                const titleFound = await page.title();
 
-              /*
-               * Act
-               */
-              const page = await loadWebsiteHelper({ url });
-              const titleFound = await page.title();
-
-              /*
-               * Assert
-               */
-              expect(titleFound).toBe(titleExpected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(titleFound).toBe(titleExpected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

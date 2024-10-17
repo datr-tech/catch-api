@@ -11,32 +11,37 @@ describe('core', () => {
       describe('imagePack', () => {
         describe('imagePackItem', () => {
           describe('imagePackParser', () => {
-            test('should find the expected imagePack', async () => {
+            test(
+              'should find the expected imagePack',
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const expectedNumItems = 6;
+                const path = 'core/parsers/common.aston.html';
+                const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
-              /*
-               * Arrange
-               */
-              const expectedNumItems = 6;
-              const path = 'core/parsers/common.aston.html';
-              const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
+                /*
+                 * Act
+                 */
+                const page = await loadWebsiteHelper({ url });
+                const { items } = (await imagePackParser.parse({
+                  elParent: page,
+                })) as IHandlerOutputImagePack;
+                const foundNumItems = items.length;
 
-              /*
-               * Act
-               */
-              const page = await loadWebsiteHelper({ url });
-              const { items } = (await imagePackParser.parse({ elParent: page })) as IHandlerOutputImagePack;
-              const foundNumItems = items.length;
-
-              /*
-               * Assert
-               */
-              expect(foundNumItems).toBe(expectedNumItems);
-              items.forEach((item, i) => {
-                const linkFound = item.link;
-                const linkExpected = imagePackItemsParserData[i];
-                expect(linkFound).toBe(linkExpected);
-              });
-            }, 20 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(foundNumItems).toBe(expectedNumItems);
+                items.forEach((item, i) => {
+                  const linkFound = item.link;
+                  const linkExpected = imagePackItemsParserData[i];
+                  expect(linkFound).toBe(linkExpected);
+                });
+              },
+              20 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

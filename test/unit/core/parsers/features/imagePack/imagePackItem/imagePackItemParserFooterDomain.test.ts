@@ -17,7 +17,6 @@ describe('core', () => {
             test.each(imagePackItemParserFooterDomainData)(
               "should return the expected domain, '$domainExpectedFirst', for the FIRST imagePackItemFooter within 'common.$name'",
               async ({ path, domainExpectedFirst }) => {
-
                 /*
                  * Arrange
                  */
@@ -39,7 +38,8 @@ describe('core', () => {
                  * Assert
                  */
                 expect(domainFound).toContain(domainExpectedFirst);
-              }, 20 * CONSTS_TIME_ONE_SECOND
+              },
+              20 * CONSTS_TIME_ONE_SECOND,
             );
           });
         });

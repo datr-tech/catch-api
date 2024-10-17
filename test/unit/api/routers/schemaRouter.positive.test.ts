@@ -7,7 +7,6 @@ describe('api', () => {
     describe('schemaRouter', () => {
       describe('positive: should return the expected spec', () => {
         test("when called with '/api/schema/v1'", async () => {
-
           /*
            * Arrange
            */
@@ -20,7 +19,6 @@ describe('api', () => {
           return request(app)
             .get(schemaUrlPath)
             .then((response) => {
-
               /*
                * Assert
                */

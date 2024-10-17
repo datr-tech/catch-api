@@ -12,26 +12,29 @@ describe('core', () => {
       describe('searchSingleHelper', () => {
         describe('positive', () => {
           describe('should return the HTML', () => {
-            test("when 'url' represents a valid web page with a submit button", async () => {
+            test(
+              "when 'url' represents a valid web page with a submit button",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const titleExpected = 'searchSinglePageHelper.positive';
+                const searchTerm = 'MOCK_SEARCH_TERM';
 
-              /*
-               * Arrange
-               */
-              const titleExpected = 'searchSinglePageHelper.positive';
-              const searchTerm = 'MOCK_SEARCH_TERM';
+                /*
+                 * Act
+                 */
+                const html = await searchSinglePageHelper({ url, searchTerm });
+                const { document } = new JSDOM(html).window;
+                const titleFound = document.title;
 
-              /*
-               * Act
-               */
-              const html = await searchSinglePageHelper({ url, searchTerm });
-              const { document } = new JSDOM(html).window;
-              const titleFound = document.title;
-
-              /*
-               * Assert
-               */
-              expect(titleFound).toBe(titleExpected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(titleFound).toBe(titleExpected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

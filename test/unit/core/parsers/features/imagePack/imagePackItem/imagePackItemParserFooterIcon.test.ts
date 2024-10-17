@@ -16,7 +16,6 @@ describe('core', () => {
             test.each(imagePackItemParserFooterIconData)(
               "should return the expected icon src, '$iconPrefixExpected', for the first imagePackItemFooter within 'common.$name'",
               async ({ path, iconPrefixExpected }) => {
-
                 /*
                  * Arrange
                  */
@@ -28,7 +27,9 @@ describe('core', () => {
                 const page = await loadWebsiteHelper({ url });
                 const imagePackItem = page.locator(imagePackItemParser.elName).first();
                 const imagePackItemFooter = imagePackItem.locator(imagePackItemParserFooter.elName).first();
-                const iconFound = (await imagePackItemParserFooterIcon.parse({ elParent: imagePackItemFooter })) as {
+                const iconFound = (await imagePackItemParserFooterIcon.parse({
+                  elParent: imagePackItemFooter,
+                })) as {
                   text: string;
                 };
 

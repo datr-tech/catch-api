@@ -13,7 +13,6 @@ describe('core', () => {
               test.each(imagePackHeaderParserTextDataPositive)(
                 "should return 'textExpected' for common.$name",
                 async ({ path }) => {
-
                   /*
                    * Arrange
                    */
@@ -25,7 +24,9 @@ describe('core', () => {
                    */
                   const page = await loadWebsiteHelper({ url });
                   const imagePackHeader = page.locator(imagePackHeaderParser.elName).first();
-                  const textFound = await imagePackHeaderParserText.parse({ elParent: imagePackHeader });
+                  const textFound = await imagePackHeaderParserText.parse({
+                    elParent: imagePackHeader,
+                  });
 
                   /*
                    * Assert

@@ -14,7 +14,6 @@ describe('api', () => {
         test.each(positiveTestData)(
           "when the value of the 'websiteId' property within 'params' is '$websiteId' (from 'positiveTestData)",
           async ({ expected, websiteId }) => {
-
             /*
              * Arrange
              */

@@ -10,24 +10,30 @@ describe('core', () => {
       describe('searchSingleHelper', () => {
         describe('negative', () => {
           describe('should return an empty string', () => {
-            test("when 'url' represents a web page without the required common", async () => {
+            test(
+              "when 'url' represents a web page without the required common",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const htmlExpected = '';
+                const searchTerm = 'MOCK_SEARCH_TERM';
 
-              /*
-               * Arrange
-               */
-              const htmlExpected = '';
-              const searchTerm = 'MOCK_SEARCH_TERM';
+                /*
+                 * Act
+                 */
+                const htmlFound = await searchSinglePageHelper({
+                  url,
+                  searchTerm,
+                });
 
-              /*
-               * Act
-               */
-              const htmlFound = await searchSinglePageHelper({ url, searchTerm });
-
-              /*
-               * Assert
-               */
-              expect(htmlFound).toBe(htmlExpected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(htmlFound).toBe(htmlExpected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

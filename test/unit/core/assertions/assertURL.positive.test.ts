@@ -6,7 +6,6 @@ describe('core', () => {
       describe('positive', () => {
         describe('should return undefined', () => {
           test("when the value of the 'url' param is a valid URL", () => {
-
             /*
              * Arrange
              */

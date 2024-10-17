@@ -6,7 +6,6 @@ describe('api', () => {
     describe('schemaController', () => {
       describe('negative', () => {
         test("should throw an error when receiving an unknown value for 'schemaVersion'", () => {
-
           /*
            * Arrange
            */

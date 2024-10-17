@@ -9,28 +9,33 @@ describe('core', () => {
     describe('organic', () => {
       describe('organicItemHeader', () => {
         describe('organicItemHeaderParserDomain', () => {
-          test("should return 'domainExpected'", async () => {
+          test(
+            "should return 'domainExpected'",
+            async () => {
+              /*
+               * Arrange
+               */
+              const domainExpected = 'Wikipedia';
+              const path = 'core/parsers/common.coast.html';
+              const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
-            /*
-             * Arrange
-             */
-            const domainExpected = 'Wikipedia';
-            const path = 'core/parsers/common.coast.html';
-            const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
+              /*
+               * Act
+               */
+              const page = await loadWebsiteHelper({ url });
+              const organicItem = page.locator(CONSTS_DOM_ORGANIC_ITEM_ROOT_EL).first();
+              const organicItemHeader = organicItem.locator(organicItemHeaderParser.elName).first();
+              const domainFound = (await organicItemHeaderParserDomain.parse({
+                elParent: organicItemHeader,
+              })) as string;
 
-            /*
-             * Act
-             */
-            const page = await loadWebsiteHelper({ url });
-            const organicItem = page.locator(CONSTS_DOM_ORGANIC_ITEM_ROOT_EL).first();
-            const organicItemHeader = organicItem.locator(organicItemHeaderParser.elName).first();
-            const domainFound = (await organicItemHeaderParserDomain.parse({ elParent: organicItemHeader })) as string;
-
-            /*
-             * Assert
-             */
-            expect(domainFound).toEqual(domainExpected);
-          }, 10 * CONSTS_TIME_ONE_SECOND);
+              /*
+               * Assert
+               */
+              expect(domainFound).toEqual(domainExpected);
+            },
+            10 * CONSTS_TIME_ONE_SECOND,
+          );
         });
       });
     });

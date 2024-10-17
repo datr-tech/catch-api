@@ -11,7 +11,6 @@ describe('core', () => {
       describe('positive', () => {
         describe("should return parser.parse'", () => {
           test("when 'elName' and 'handler' are valid", async () => {
-
             /*
              * Arrange
              */

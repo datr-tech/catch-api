@@ -9,8 +9,12 @@ import { CONSTS_DOM_IMAGE_PACK_ROOT_EL } from '@app/config/consts/dom';
 const elName = CONSTS_DOM_IMAGE_PACK_ROOT_EL;
 const handler: IHandler = async ({ el }) =>
   ({
-    header: (await imagePackHeaderParser.parse({ elParent: el })) as IHandlerOutputImagePackHeader,
-    items: (await imagePackItemsParser.parse({ elParent: el })) as IHandlerOutputImagePackItems,
+    header: (await imagePackHeaderParser.parse({
+      elParent: el,
+    })) as IHandlerOutputImagePackHeader,
+    items: (await imagePackItemsParser.parse({
+      elParent: el,
+    })) as IHandlerOutputImagePackItems,
   }) as IHandlerOutputImagePack;
 
 export const imagePackParser = parserBuilder({ elName, handler });

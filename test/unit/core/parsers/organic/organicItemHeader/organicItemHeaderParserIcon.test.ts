@@ -10,28 +10,33 @@ describe('core', () => {
     describe('organic', () => {
       describe('organicItemHeader', () => {
         describe('organicItemHeaderParserIcon', () => {
-          test("should return 'iconExpected'", async () => {
+          test(
+            "should return 'iconExpected'",
+            async () => {
+              /*
+               * Arrange
+               */
+              const iconExpected = organicItemHeaderParserIconClimbingData;
+              const path = 'core/parsers/common.climbing.html';
+              const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
-            /*
-             * Arrange
-             */
-            const iconExpected = organicItemHeaderParserIconClimbingData;
-            const path = 'core/parsers/common.climbing.html';
-            const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
+              /*
+               * Act
+               */
+              const page = await loadWebsiteHelper({ url });
+              const organicItem = page.locator(CONSTS_DOM_ORGANIC_ITEM_ROOT_EL).nth(0);
+              const organicItemHeader = organicItem.locator(organicItemHeaderParser.elName).first();
+              const iconFound = (await organicItemHeaderParserIcon.parse({
+                elParent: organicItemHeader,
+              })) as string;
 
-            /*
-             * Act
-             */
-            const page = await loadWebsiteHelper({ url });
-            const organicItem = page.locator(CONSTS_DOM_ORGANIC_ITEM_ROOT_EL).first();
-            const organicItemHeader = organicItem.locator(organicItemHeaderParser.elName).first();
-            const iconFound = (await organicItemHeaderParserIcon.parse({ elParent: organicItemHeader })) as string;
-
-            /*
-             * Assert
-             */
-            expect(iconFound).toEqual(iconExpected);
-          }, 10 * CONSTS_TIME_ONE_SECOND);
+              /*
+               * Assert
+               */
+              expect(iconFound).toEqual(iconExpected);
+            },
+            10 * CONSTS_TIME_ONE_SECOND,
+          );
         });
       });
     });

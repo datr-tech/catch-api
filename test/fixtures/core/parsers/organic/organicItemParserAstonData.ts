@@ -3,5 +3,5 @@ import { organicItemHeaderParserAstonData } from '@appTest/fixtures/core/parsers
 
 export const organicItemParserAstonData = {
   body: organicItemBodyParserAstonData,
-  header: organicItemHeaderParserAstonData
-}
+  header: organicItemHeaderParserAstonData,
+};

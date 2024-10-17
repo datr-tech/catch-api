@@ -6,4 +6,7 @@ import { CONSTS_DOM_IMAGE_PACK_ITEM_FOOTER_DOMAIN_ROOT_EL } from '@app/config/co
 const elName = CONSTS_DOM_IMAGE_PACK_ITEM_FOOTER_DOMAIN_ROOT_EL;
 const handler: IHandler = async ({ el }) => (await el.innerText()) as IHandlerOutputImagePackItemFooterText;
 
-export const imagePackItemParserFooterDomain = parserBuilder({ elName, handler });
+export const imagePackItemParserFooterDomain = parserBuilder({
+  elName,
+  handler,
+});

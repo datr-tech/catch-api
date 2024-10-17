@@ -7,7 +7,6 @@ describe('api', () => {
     describe('schemaController', () => {
       describe('positive', () => {
         test('should return the expected schema', () => {
-
           /*
            * Arrange
            */

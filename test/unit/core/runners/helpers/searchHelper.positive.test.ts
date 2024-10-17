@@ -12,49 +12,59 @@ describe('core', () => {
       describe('searchHelper', () => {
         describe('positive', () => {
           describe('should return the HTML within an array', () => {
-            test("when 'url' represents a valid web page with a submit button", async () => {
+            test(
+              "when 'url' represents a valid web page with a submit button",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const numPages = 1;
+                const searchTerm = 'MOCK_SEARCH_TERM';
+                const titleExpected = 'searchHelper.positive';
 
-              /*
-               * Arrange
-               */
-              const numPages = 1;
-              const searchTerm = 'MOCK_SEARCH_TERM';
-              const titleExpected = 'searchHelper.positive';
+                /*
+                 * Act
+                 */
+                const output = await searchHelper({
+                  url,
+                  searchTerm,
+                  numPages,
+                });
+                const html = output[0];
 
-              /*
-               * Act
-               */
-              const output = await searchHelper({ url, searchTerm, numPages });
-              const html = output[0];
+                /*
+                 * Assert
+                 */
+                const { document } = new JSDOM(html).window;
+                const titleFound = document.title;
+                expect(titleFound).toBe(titleExpected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
+            test(
+              "when 'url' represents a valid web page and the default value of 'numPages', 1, is used",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const searchTerm = 'MOCK_SEARCH_TERM';
+                const titleExpected = 'searchHelper.positive';
 
-              /*
-               * Assert
-               */
-              const { document } = new JSDOM(html).window;
-              const titleFound = document.title;
-              expect(titleFound).toBe(titleExpected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
-            test("when 'url' represents a valid web page and the default value of 'numPages', 1, is used", async () => {
+                /*
+                 * Act
+                 */
+                const output = await searchHelper({ url, searchTerm });
+                const html = output[0];
 
-              /*
-               * Arrange
-               */
-              const searchTerm = 'MOCK_SEARCH_TERM';
-              const titleExpected = 'searchHelper.positive';
-
-              /*
-               * Act
-               */
-              const output = await searchHelper({ url, searchTerm });
-              const html = output[0];
-
-              /*
-               * Assert
-               */
-              const { document } = new JSDOM(html).window;
-              const titleFound = document.title;
-              expect(titleFound).toBe(titleExpected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                const { document } = new JSDOM(html).window;
+                const titleFound = document.title;
+                expect(titleFound).toBe(titleExpected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

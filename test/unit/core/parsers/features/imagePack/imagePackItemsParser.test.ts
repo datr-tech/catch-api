@@ -11,33 +11,38 @@ describe('core', () => {
       describe('imagePack', () => {
         describe('imagePackItem', () => {
           describe('imagePackItemsParser', () => {
-            test('should find the expected number of imagePack items: 6', async () => {
+            test(
+              'should find the expected number of imagePack items: 6',
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const expectedNumItems = 6;
+                const path = 'core/parsers/common.aston.html';
+                const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
-              /*
-               * Arrange
-               */
-              const expectedNumItems = 6;
-              const path = 'core/parsers/common.aston.html';
-              const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
+                /*
+                 * Act
+                 */
+                const page = await loadWebsiteHelper({ url });
+                const elParent = page.locator(imagePackParser.elName);
+                const imagePackItems = (await imagePackItemsParser.parse({
+                  elParent,
+                })) as IHandlerOutputImagePackItems;
+                const foundNumItems = imagePackItems.length;
 
-              /*
-               * Act
-               */
-              const page = await loadWebsiteHelper({ url });
-              const elParent = page.locator(imagePackParser.elName);
-              const imagePackItems = (await imagePackItemsParser.parse({ elParent })) as IHandlerOutputImagePackItems;
-              const foundNumItems = imagePackItems.length;
-
-              /*
-               * Assert
-               */
-              expect(foundNumItems).toBe(expectedNumItems);
-              imagePackItems.forEach((imagePackItem, i) => {
-                const linkFound = imagePackItem.link;
-                const linkExpected = imagePackItemsParserData[i];
-                expect(linkFound).toBe(linkExpected);
-              });
-            }, 20 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(foundNumItems).toBe(expectedNumItems);
+                imagePackItems.forEach((imagePackItem, i) => {
+                  const linkFound = imagePackItem.link;
+                  const linkExpected = imagePackItemsParserData[i];
+                  expect(linkFound).toBe(linkExpected);
+                });
+              },
+              20 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

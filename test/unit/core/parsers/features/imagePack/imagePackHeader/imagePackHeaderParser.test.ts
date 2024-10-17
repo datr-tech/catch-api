@@ -10,25 +10,30 @@ describe('core', () => {
       describe('imagePack', () => {
         describe('imagePackHeader', () => {
           describe('imagePackHeaderParser', () => {
-            test.each(imagePackHeaderParserData)("should return 'textExpected' for common.$name", async ({ path }) => {
+            test.each(imagePackHeaderParserData)(
+              "should return 'textExpected' for common.$name",
+              async ({ path }) => {
+                /*
+                 * Arrange
+                 */
+                const textExpected = 'Images';
+                const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
 
-              /*
-               * Arrange
-               */
-              const textExpected = 'Images';
-              const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
+                /*
+                 * Act
+                 */
+                const page = await loadWebsiteHelper({ url });
+                const { text } = (await imagePackHeaderParser.parse({
+                  elParent: page,
+                })) as { text: string };
 
-              /*
-               * Act
-               */
-              const page = await loadWebsiteHelper({ url });
-              const { text } = (await imagePackHeaderParser.parse({ elParent: page })) as { text: string };
-
-              /*
-               * Assert
-               */
-              expect(text).toBe(textExpected);
-            }, 20 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(text).toBe(textExpected);
+              },
+              20 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

@@ -18,7 +18,6 @@ describe('api', () => {
         test.each(positiveTestData)(
           "when the value of the 'searchTerm' property within 'params' is '$searchTerm' (from 'positiveTestData)",
           async ({ expected, searchTerm }) => {
-
             /*
              * Arrange
              */
