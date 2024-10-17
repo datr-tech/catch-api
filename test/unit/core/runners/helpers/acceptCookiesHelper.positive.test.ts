@@ -10,24 +10,27 @@ describe('core', () => {
       describe('acceptCookiesHelper', () => {
         describe('positive', () => {
           describe('should return true', () => {
-            test("when 'url' represents a valid web page with an 'Accept all' button", async () => {
+            test(
+              "when 'url' represents a valid web page with an 'Accept all' button",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const expected = true;
 
-              /*
-               * Arrange
-               */
-              const expected = true;
+                /*
+                 * Act
+                 */
+                const page = await loadWebsiteHelper({ url });
+                const found = await acceptCookiesHelper({ page });
 
-              /*
-               * Act
-               */
-              const page = await loadWebsiteHelper({ url });
-              const found = await acceptCookiesHelper({ page });
-
-              /*
-               * Assert
-               */
-              expect(found).toBe(expected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(found).toBe(expected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

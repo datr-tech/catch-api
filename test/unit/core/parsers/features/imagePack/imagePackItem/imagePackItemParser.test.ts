@@ -13,7 +13,6 @@ describe('core', () => {
             test.each(imagePackItemParserData)(
               "should return the expected properties for the expectedLast imagePackItem within 'common.$name'",
               async ({ path, expectedLast }) => {
-
                 /*
                  * Arrange
                  */

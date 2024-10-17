@@ -10,49 +10,55 @@ describe('core', () => {
       describe('acceptCookiesHelper', () => {
         describe('negative', () => {
           describe('should return false', () => {
-            test("when 'url' represents a valid web page WITHOUT an 'Accept all' button", async () => {
+            test(
+              "when 'url' represents a valid web page WITHOUT an 'Accept all' button",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const expected = false;
 
-              /*
-               * Arrange
-               */
-              const expected = false;
+                /*
+                 * Act
+                 */
+                const page = await loadWebsiteHelper({ url });
+                const found = await acceptCookiesHelper({ page });
 
-              /*
-               * Act
-               */
-              const page = await loadWebsiteHelper({ url });
-              const found = await acceptCookiesHelper({ page });
-
-              /*
-               * Assert
-               */
-              expect(found).toBe(expected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(found).toBe(expected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
           describe('should throw an error', () => {
-            test("when 'page.locator' throws an error", async () => {
+            test(
+              "when 'page.locator' throws an error",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const errorExpected = 'Locator error';
+                const page = await loadWebsiteHelper({ url });
+                page.locator = () => {
+                  throw new Error(errorExpected);
+                };
 
-              /*
-               * Arrange
-               */
-              const errorExpected = 'Locator error';
-              const page = await loadWebsiteHelper({ url });
-              page.locator = () => {
-                throw new Error(errorExpected);
-              };
+                /*
+                 * Act
+                 */
+                const handle = async () => {
+                  await acceptCookiesHelper({ page });
+                };
 
-              /*
-               * Act
-               */
-              const handle = async () => {
-                await acceptCookiesHelper({ page });
-              };
-
-              /*
-               * Assert
-               */
-              await expect(handle).rejects.toThrow(errorExpected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                await expect(handle).rejects.toThrow(errorExpected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

@@ -1,10 +1,7 @@
 import { parserBuilder } from '@app/core/builders/parserBuilder';
 import { IHandler } from '@app/interfaces/core/builders/parserBuilder/handlers';
 import { organicItemParser } from '@app/core/parsers/organic';
-import {
-  IHandlerOutputOrganicItem,
-  IHandlerOutputOrganicItems
-} from '@app/interfaces/core/parsers/organic';
+import { IHandlerOutputOrganicItem, IHandlerOutputOrganicItems } from '@app/interfaces/core/parsers/organic';
 
 const { elName } = organicItemParser;
 

@@ -10,26 +10,33 @@ describe('core', () => {
       describe('searchHelper', () => {
         describe('negative', () => {
           describe('should return an array with an empty string ', () => {
-            test("when 'url' represents a valid web page WITHOUT the required common", async () => {
+            test(
+              "when 'url' represents a valid web page WITHOUT the required common",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const htmlExpected = '';
+                const numPages = 1;
+                const searchTerm = 'MOCK_SEARCH_TERM';
 
-              /*
-               * Arrange
-               */
-              const htmlExpected = '';
-              const numPages = 1;
-              const searchTerm = 'MOCK_SEARCH_TERM';
+                /*
+                 * Act
+                 */
+                const output = await searchHelper({
+                  url,
+                  searchTerm,
+                  numPages,
+                });
+                const htmlFound = output[0];
 
-              /*
-               * Act
-               */
-              const output = await searchHelper({ url, searchTerm, numPages });
-              const htmlFound = output[0];
-
-              /*
-               * Assert
-               */
-              expect(htmlFound).toBe(htmlExpected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(htmlFound).toBe(htmlExpected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

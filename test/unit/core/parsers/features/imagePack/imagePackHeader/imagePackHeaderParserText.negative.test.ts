@@ -13,7 +13,6 @@ describe('core', () => {
               test.each(imagePackHeaderParserTextDataNegative)(
                 'should return undefined for common.$name',
                 async ({ path }) => {
-
                   /*
                    * Arrange
                    */
@@ -23,7 +22,9 @@ describe('core', () => {
                    * Act
                    */
                   const page = await loadWebsiteHelper({ url });
-                  const output = await imagePackHeaderParserText.parse({ elParent: page });
+                  const output = await imagePackHeaderParserText.parse({
+                    elParent: page,
+                  });
 
                   /*
                    * Assert

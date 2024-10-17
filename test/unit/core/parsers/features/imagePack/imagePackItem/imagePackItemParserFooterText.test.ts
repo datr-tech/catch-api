@@ -17,7 +17,6 @@ describe('core', () => {
             test.each(imagePackItemParserFooterTextData)(
               "should return the expected text, '$textExpected', for the first imagePackItemFooter within 'common.$name'",
               async ({ path, textExpected }) => {
-
                 /*
                  * Arrange
                  */
@@ -29,7 +28,9 @@ describe('core', () => {
                 const page = await loadWebsiteHelper({ url });
                 const imagePackItem = page.locator(imagePackItemParser.elName).first();
                 const imagePackItemFooter = imagePackItem.locator(imagePackItemParserFooter.elName).first();
-                const textFound = (await imagePackItemParserFooterText.parse({ elParent: imagePackItemFooter })) as {
+                const textFound = (await imagePackItemParserFooterText.parse({
+                  elParent: imagePackItemFooter,
+                })) as {
                   text: string;
                 };
 

@@ -7,4 +7,7 @@ const elName = CONSTS_DOM_ORGANIC_ITEM_HEADER_BREADCRUMBS_ROOT_EL;
 const handler: IHandler = async ({ el }) =>
   (await el.first().innerText()) as IHandlerOutputOrganicItemHeaderBreadcrumbs;
 
-export const organicItemHeaderParserBreadcrumbs = parserBuilder({ elName, handler });
+export const organicItemHeaderParserBreadcrumbs = parserBuilder({
+  elName,
+  handler,
+});

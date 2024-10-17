@@ -24,7 +24,6 @@ describe('api', () => {
         test.each(negativeTestData)(
           "when the value of the 'schemaVersion' property within 'params' is '$schemaVersion' (from 'negativeTestData)",
           async ({ expected, schemaVersion }) => {
-
             /*
              * Arrange
              */

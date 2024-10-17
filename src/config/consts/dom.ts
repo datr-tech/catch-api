@@ -1,3 +1,8 @@
+const ORGANIC_ITEM_ROOT_EL_STANDARD = 'div.MjjYud div.srKDX';
+const ORGANIC_ITEM_ROOT_EL_EXTENDED = 'div.MjjYud div.BYM4Nd';
+const ORGANIC_ITEM_ROOT_EL_COMMERCIAL = 'div.MjjYud div.N54PNb.BToiNc.cvP2Ce';
+const ORGANIC_ITEM_ROOT_EL_YOUTUBE = 'div.MjjYud div.g.PmEWq';
+
 export const CONSTS_DOM_IMAGE_PACK_ROOT_EL = 'div.ULSxyf';
 export const CONSTS_DOM_IMAGE_PACK_HEADER_ROOT_EL = '.Lv2Cle .x7cRLb';
 export const CONSTS_DOM_IMAGE_PACK_HEADER_LINK_ROOT_EL = 'a';
@@ -12,12 +17,12 @@ export const CONSTS_DOM_IMAGE_PACK_ITEM_IMG_SRC_ROOT_EL = 'img';
 export const CONSTS_DOM_IMAGE_PACK_ITEM_IMG_TEXT_ROOT_EL = 'img';
 export const CONSTS_DOM_IMAGE_PACK_ITEM_LINK_ROOT_EL = '.ddkIM.c30Ztd';
 
-export const CONSTS_DOM_ORGANIC_ITEM_ROOT_EL = '.MjjYud .srKDX.cvP2Ce';
-export const CONSTS_DOM_ORGANIC_ITEM_BODY_ROOT_EL = 'div.VwiC3b.yXK7lf.lVm3ye.r025kc.hJNv6b span';
-export const CONSTS_DOM_ORGANIC_ITEM_HEADER_ROOT_EL = 'div.kb0PBd.cvP2Ce.ieodic.jGGQ5e';
+export const CONSTS_DOM_ORGANIC_ITEM_ROOT_EL = `${ORGANIC_ITEM_ROOT_EL_STANDARD}, ${ORGANIC_ITEM_ROOT_EL_EXTENDED}, ${ORGANIC_ITEM_ROOT_EL_COMMERCIAL},  ${ORGANIC_ITEM_ROOT_EL_YOUTUBE}`;
+export const CONSTS_DOM_ORGANIC_ITEM_BODY_ROOT_EL = 'div.VwiC3b.yXK7lf.lVm3ye.r025kc.hJNv6b, div.fzUZNc div.ITZIwc';
+export const CONSTS_DOM_ORGANIC_ITEM_HEADER_ROOT_EL = 'div.kb0PBd.cvP2Ce.jGGQ5e, div.xe8e1b div.nhaZ2c';
 export const CONSTS_DOM_ORGANIC_ITEM_HEADER_BREADCRUMBS_ROOT_EL =
-  'div.q0vns div.CA5RN div.byrV5b cite.qLRx3b.tjvcx.GvPZzd.cHaqb';
+  'div.q0vns div.CA5RN div.byrV5b cite.tjvcx.GvPZzd.cHaqb';
 export const CONSTS_DOM_ORGANIC_ITEM_HEADER_DOMAIN_ROOT_EL = 'div.q0vns span.VuuXrf';
-export const CONSTS_DOM_ORGANIC_ITEM_HEADER_ICON_ROOT_EL = '.eqA2re.UnOTSe.Vwoesf img';
-export const CONSTS_DOM_ORGANIC_ITEM_HEADER_LINK_ROOT_EL = '.yuRUbf a';
+export const CONSTS_DOM_ORGANIC_ITEM_HEADER_ICON_ROOT_EL = '.eqA2re.Vwoesf img';
+export const CONSTS_DOM_ORGANIC_ITEM_HEADER_LINK_ROOT_EL = 'div.yuRUbf a, a';
 export const CONSTS_DOM_ORGANIC_ITEM_HEADER_TITLE_ROOT_EL = 'h3.LC20lb.MBeuO.DKV0Md';

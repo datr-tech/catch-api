@@ -10,26 +10,32 @@ describe('core', () => {
       describe('enterSearchTermHelper', () => {
         describe('positive', () => {
           describe('should return true', () => {
-            test("when 'url' represents a valid web page with a 'Search' input", async () => {
+            test(
+              "when 'url' represents a valid web page with a 'Search' input",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const searchTerm = 'MOCK_SEARCH_TERM';
 
-              /*
-               * Arrange
-               */
-              const searchTerm = 'MOCK_SEARCH_TERM';
+                /*
+                 * Act
+                 */
+                const page = await loadWebsiteHelper({ url });
+                const hasAcceptedCookies = await acceptCookiesHelper({ page });
+                const hasEnteredSearchTerm = await enterSearchTermHelper({
+                  page,
+                  searchTerm,
+                });
 
-              /*
-               * Act
-               */
-              const page = await loadWebsiteHelper({ url });
-              const hasAcceptedCookies = await acceptCookiesHelper({ page });
-              const hasEnteredSearchTerm = await enterSearchTermHelper({ page, searchTerm });
-
-              /*
-               * Assert
-               */
-              expect(hasAcceptedCookies).toBe(true);
-              expect(hasEnteredSearchTerm).toBe(true);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                expect(hasAcceptedCookies).toBe(true);
+                expect(hasEnteredSearchTerm).toBe(true);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

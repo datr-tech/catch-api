@@ -10,29 +10,32 @@ describe('core', () => {
     describe('organic', () => {
       describe('organicItemHeader', () => {
         describe('organicItemHeaderParser', () => {
-          test("should return the 'organicItemHeaderExpected'", async () => {
+          test(
+            "should return the 'organicItemHeaderExpected'",
+            async () => {
+              /*
+               * Arrange
+               */
+              const path = 'core/parsers/common.aston.html';
+              const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
+              const organicItemHeaderExpected = organicItemHeaderParserAstonData;
 
-            /*
-             * Arrange
-             */
-            const path = 'core/parsers/common.aston.html';
-            const url = `file://${CONSTS_PATHS_TEST_FIXTURES_DIR}/${path}`;
-            const organicItemHeaderExpected = organicItemHeaderParserAstonData;
+              /*
+               * Act
+               */
+              const page = await loadWebsiteHelper({ url });
+              const organicItem = page.locator(CONSTS_DOM_ORGANIC_ITEM_ROOT_EL).nth(1);
+              const organicItemHeaderFound = (await organicItemHeaderParser.parse({
+                elParent: organicItem,
+              })) as string;
 
-            /*
-             * Act
-             */
-            const page = await loadWebsiteHelper({ url });
-            const organicItem = page.locator(CONSTS_DOM_ORGANIC_ITEM_ROOT_EL).first();
-            const organicItemHeaderFound = (await organicItemHeaderParser.parse({
-              elParent: organicItem,
-            })) as string;
-
-            /*
-             * Assert
-             */
-            expect(organicItemHeaderFound).toEqual(organicItemHeaderExpected);
-          }, 10 * CONSTS_TIME_ONE_SECOND);
+              /*
+               * Assert
+               */
+              expect(organicItemHeaderFound).toEqual(organicItemHeaderExpected);
+            },
+            10 * CONSTS_TIME_ONE_SECOND,
+          );
         });
       });
     });

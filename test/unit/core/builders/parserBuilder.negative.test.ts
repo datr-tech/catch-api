@@ -11,7 +11,6 @@ describe('core', () => {
       describe('negative', () => {
         describe('should return undefined', () => {
           test("when 'elName' is not found", async () => {
-
             /*
              * Arrange
              */
@@ -33,7 +32,6 @@ describe('core', () => {
         });
         describe('should throw an error', () => {
           test("when 'elName' is an empty string", async () => {
-
             /*
              * Arrange
              */

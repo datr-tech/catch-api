@@ -9,7 +9,7 @@ const elName = CONSTS_DOM_ORGANIC_ITEM_ROOT_EL;
 const handler: IHandler = async ({ el }) =>
   ({
     body: await organicItemBodyParser.parse({ elParent: el }),
-    header: await organicItemHeaderParser.parse({ elParent: el })
+    header: await organicItemHeaderParser.parse({ elParent: el }),
   }) as IHandlerOutputOrganicItem;
 
 export const organicItemParser = parserBuilder({ elName, handler });

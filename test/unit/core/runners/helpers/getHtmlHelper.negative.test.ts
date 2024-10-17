@@ -10,29 +10,32 @@ describe('core', () => {
       describe('getHtmlHelper', () => {
         describe('negative', () => {
           describe('should throw an error', () => {
-            test("when 'page.content' throws an error", async () => {
+            test(
+              "when 'page.content' throws an error",
+              async () => {
+                /*
+                 * Arrange
+                 */
+                const errorExpected = 'page.content error';
+                const page = await loadWebsiteHelper({ url });
+                page.content = () => {
+                  throw new Error(errorExpected);
+                };
 
-              /*
-               * Arrange
-               */
-              const errorExpected = 'page.content error';
-              const page = await loadWebsiteHelper({ url });
-              page.content = () => {
-                throw new Error(errorExpected);
-              };
+                /*
+                 * Act
+                 */
+                const handle = async () => {
+                  await getHtmlHelper({ page });
+                };
 
-              /*
-               * Act
-               */
-              const handle = async () => {
-                await getHtmlHelper({ page });
-              };
-
-              /*
-               * Assert
-               */
-              await expect(handle).rejects.toThrow(errorExpected);
-            }, 10 * CONSTS_TIME_ONE_SECOND);
+                /*
+                 * Assert
+                 */
+                await expect(handle).rejects.toThrow(errorExpected);
+              },
+              10 * CONSTS_TIME_ONE_SECOND,
+            );
           });
         });
       });

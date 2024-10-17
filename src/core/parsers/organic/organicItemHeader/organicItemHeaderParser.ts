@@ -11,7 +11,9 @@ import { CONSTS_DOM_ORGANIC_ITEM_HEADER_ROOT_EL } from '@app/config/consts/dom';
 const elName = CONSTS_DOM_ORGANIC_ITEM_HEADER_ROOT_EL;
 const handler: IHandler = async ({ el }) =>
   ({
-    breadcrumbs: await organicItemHeaderParserBreadcrumbs.parse({ elParent: el }),
+    breadcrumbs: await organicItemHeaderParserBreadcrumbs.parse({
+      elParent: el,
+    }),
     domain: await organicItemHeaderParserDomain.parse({ elParent: el }),
     icon: await organicItemHeaderParserIcon.parse({ elParent: el }),
     link: await organicItemHeaderParserLink.parse({ elParent: el }),
