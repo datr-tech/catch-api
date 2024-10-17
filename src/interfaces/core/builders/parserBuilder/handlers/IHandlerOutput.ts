@@ -25,6 +25,10 @@ import {
 } from '@app/interfaces/core/parsers/organic/organicItemHeader';
 import { IHandlerOutputOrganicItemBody } from '@app/interfaces/core/parsers/organic/organicItemBody';
 import { IHandlerOutputOrganicItem, IHandlerOutputOrganicItems } from '@app/interfaces/core/parsers/organic';
+import {
+  IHandlerOutputOrganicItemFooter,
+  IHandlerOutputOrganicItemFooterProsCons,
+} from '@app/interfaces/core/parsers/organic/organicItemFooter';
 
 export type IHandlerOutput =
   | IHandlerOutputImagePackHeader
@@ -48,4 +52,6 @@ export type IHandlerOutput =
   | IHandlerOutputOrganicItemHeaderTitle
   | IHandlerOutputOrganicItemBody
   | IHandlerOutputOrganicItem
-  | IHandlerOutputOrganicItems;
+  | IHandlerOutputOrganicItems
+  | IHandlerOutputOrganicItemFooter
+  | IHandlerOutputOrganicItemFooterProsCons;
