@@ -1,0 +1,1 @@
+export { paidCarouselItemParser } from './paidCarouselItemParser';

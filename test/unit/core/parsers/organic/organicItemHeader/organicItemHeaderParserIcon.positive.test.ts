@@ -9,7 +9,7 @@ describe('core', () => {
   describe('parsers', () => {
     describe('organic', () => {
       describe('organicItemHeader', () => {
-        describe('organicItemHeaderParserIcon', () => {
+        describe('paidCarouselItem', () => {
           describe('positive', () => {
             test(
               "should return 'iconExpected'",

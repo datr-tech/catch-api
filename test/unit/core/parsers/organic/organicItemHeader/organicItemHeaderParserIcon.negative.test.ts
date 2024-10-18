@@ -8,7 +8,7 @@ describe('core', () => {
   describe('parsers', () => {
     describe('organic', () => {
       describe('organicItemHeader', () => {
-        describe('organicItemHeaderParserIcon', () => {
+        describe('paidCarouselItem', () => {
           describe('negative', () => {
             test(
               "should return 'undefined'",

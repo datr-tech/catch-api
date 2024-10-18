@@ -35,6 +35,38 @@ import {
 import { IHandlerOutputFeatures } from '@app/interfaces/core/parsers/features';
 import { IHandlerOutputRoot } from '@app/interfaces/core/parsers';
 
+import {
+  IHandlerOutputPaidCarouselItemBody,
+  IHandlerOutputPaidCarouselItemBodyCompany,
+  IHandlerOutputPaidCarouselItemBodyPrice,
+  IHandlerOutputPaidCarouselItemBodyPriceOriginal,
+  IHandlerOutputPaidCarouselItemBodyPriceValue,
+  IHandlerOutputPaidCarouselItemBodyTitle,
+  IHandlerOutputPaidCarouselItemBodyTitleLink,
+  IHandlerOutputPaidCarouselItemBodyTitleText
+} from '@app/interfaces/core/parsers/paid/paidCarouselItem/paidCarouselItemBody';
+
+import {
+  IHandlerOutputPaidCarouselItemHeader,
+  IHandlerOutputPaidCarouselItemHeaderBanner,
+  IHandlerOutputPaidCarouselItemHeaderImage,
+  IHandlerOutputPaidCarouselItemHeaderLink
+} from '@app/interfaces/core/parsers/paid/paidCarouselItem/paidCarouselItemHeader';
+
+import {
+  IHandlerOutputPaidCarouselItemFooter,
+  IHandlerOutputPaidCarouselItemFooterDelivery,
+  IHandlerOutputPaidCarouselItemFooterOriginator,
+  IHandlerOutputPaidCarouselItemFooterOriginatorLink,
+  IHandlerOutputPaidCarouselItemFooterOriginatorText
+} from '@app/interfaces/core/parsers/paid/paidCarouselItem/paidCarouselItemFooter';
+
+import {
+  IHandlerOutputPaidCarouselItemSummary
+} from '@app/interfaces/core/parsers/paid/paidCarouselItem/paidCarouselItemSummary';
+
+import { IHandlerOutputPaidCarouselItem } from '@app/interfaces/core/parsers/paid/paidCarouselItem';
+
 export type IHandlerOutput =
   | IHandlerOutputImagePackHeader
   | IHandlerOutputImagePackHeaderLink
@@ -63,4 +95,23 @@ export type IHandlerOutput =
   | IHandlerOutputOrganicItemFooterSecondaryRef
   | IHandlerOutputOrganicItemFooterSecondaryRefs
   | IHandlerOutputFeatures
-  | IHandlerOutputRoot;
+  | IHandlerOutputRoot
+  | IHandlerOutputPaidCarouselItemBody
+  | IHandlerOutputPaidCarouselItemBodyCompany
+  | IHandlerOutputPaidCarouselItemBodyPrice
+  | IHandlerOutputPaidCarouselItemBodyPriceOriginal
+  | IHandlerOutputPaidCarouselItemBodyPriceValue
+  | IHandlerOutputPaidCarouselItemBodyTitle
+  | IHandlerOutputPaidCarouselItemBodyTitleLink
+  | IHandlerOutputPaidCarouselItemBodyTitleText
+  | IHandlerOutputPaidCarouselItemHeaderBanner
+  | IHandlerOutputPaidCarouselItemHeaderImage
+  | IHandlerOutputPaidCarouselItemHeaderLink
+  | IHandlerOutputPaidCarouselItemHeader
+  | IHandlerOutputPaidCarouselItemFooter
+  | IHandlerOutputPaidCarouselItemFooterDelivery
+  | IHandlerOutputPaidCarouselItemFooterOriginator
+  | IHandlerOutputPaidCarouselItemFooterOriginatorLink
+  | IHandlerOutputPaidCarouselItemFooterOriginatorText
+  | IHandlerOutputPaidCarouselItemSummary
+  | IHandlerOutputPaidCarouselItem;

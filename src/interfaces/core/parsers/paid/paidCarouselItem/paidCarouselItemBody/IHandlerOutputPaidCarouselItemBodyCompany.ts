@@ -1,0 +1,1 @@
+export type IHandlerOutputPaidCarouselItemBodyCompany = string | undefined;

@@ -1,0 +1,1 @@
+export { IHandlerOutputPaidCarouselItemSummary } from './IHandlerOutputPaidCarouselItemSummary';
